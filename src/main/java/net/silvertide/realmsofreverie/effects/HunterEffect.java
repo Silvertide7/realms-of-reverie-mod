@@ -1,6 +1,5 @@
 package net.silvertide.realmsofreverie.effects;
 
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -20,8 +19,8 @@ public class HunterEffect extends MobEffect {
     @Override
     public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
         if(livingEntity instanceof ServerPlayer serverPlayer) {
-            Class<? extends Mob> targetClazz = amplifier >= 2 ? Mob.class : Monster.class;
-            int distanceScanned = Math.min(amplifier * 30, 120);
+            Class<? extends Mob> targetClazz = amplifier > 1 ? Mob.class : Monster.class;
+            int distanceScanned = 20 + Math.min(amplifier * 20, 100);
             serverPlayer.serverLevel()
                 .getNearbyEntities(targetClazz, TargetingConditions.forCombat(), serverPlayer, AABB.ofSize(serverPlayer.position(), distanceScanned, distanceScanned, distanceScanned))
                 .forEach(nearbyEntity -> {

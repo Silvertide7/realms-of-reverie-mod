@@ -12,20 +12,16 @@ import net.silvertide.realmsofreverie.effects.HunterEffect;
 public class EffectRegistry {
 
     public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(
-            // The registry we want to use.
-            // Minecraft's registries can be found in BuiltInRegistries, NeoForge's registries can be found in NeoForgeRegistries.
-            // Mods may also add their own registries, refer to the individual mod's documentation or source code for where to find them.
             BuiltInRegistries.MOB_EFFECT,
-            // Our mod id.
             RealmsOfReverie.MOD_ID
     );
 
-    public static final Holder<MobEffect> HUNTER_EFFECT = MOB_EFFECTS.register("hunter_effect", () -> new HunterEffect(
-            //Can be either BENEFICIAL, NEUTRAL or HARMFUL. Used to determine the potion tooltip color of this effect.
-            MobEffectCategory.BENEFICIAL,
-            //The color of the effect particles in RGB format.
-            3124687
-    ));
+    public static final Holder<MobEffect> HUNTER_EFFECT = MOB_EFFECTS.register("hunter_effect",
+            () -> new HunterEffect(MobEffectCategory.BENEFICIAL, 3124687));
+
+//    public static final Holder<MobEffect> MEDITATION_EFFECT = MOB_EFFECTS.register("meditation_effect",
+//            () -> new MeditationEffect(MobEffectCategory.BENEFICIAL, 3124687));
+
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
