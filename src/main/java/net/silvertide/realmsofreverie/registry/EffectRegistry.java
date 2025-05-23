@@ -19,10 +19,6 @@ public class EffectRegistry {
     public static final Holder<MobEffect> HUNTER_EFFECT = MOB_EFFECTS.register("hunter_effect",
             () -> new HunterEffect(MobEffectCategory.BENEFICIAL, 3124687));
 
-//    public static final Holder<MobEffect> MEDITATION_EFFECT = MOB_EFFECTS.register("meditation_effect",
-//            () -> new MeditationEffect(MobEffectCategory.BENEFICIAL, 3124687));
-
-
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }

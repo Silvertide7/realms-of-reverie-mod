@@ -20,11 +20,11 @@ public class HunterEffect extends MobEffect {
     public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
         if(livingEntity instanceof ServerPlayer serverPlayer) {
             Class<? extends Mob> targetClazz = amplifier > 1 ? Mob.class : Monster.class;
-            int distanceScanned = 20 + Math.min(amplifier * 20, 100);
+            int distanceScanned = 25 + Math.min(amplifier * 20, 120);
             serverPlayer.serverLevel()
                 .getNearbyEntities(targetClazz, TargetingConditions.forCombat(), serverPlayer, AABB.ofSize(serverPlayer.position(), distanceScanned, distanceScanned, distanceScanned))
                 .forEach(nearbyEntity -> {
-                    nearbyEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 22));
+                    nearbyEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 30));
             });
         }
 
@@ -33,6 +33,6 @@ public class HunterEffect extends MobEffect {
 
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-        return duration % 20 == 0;
+        return duration % Math.max(120 / amplifier, 20) == 0;
     }
 }

@@ -1,5 +1,7 @@
 package net.silvertide.realmsofreverie;
 
+import com.mojang.serialization.Codec;
+import net.minecraft.resources.ResourceLocation;
 import net.silvertide.realmsofreverie.registry.EffectRegistry;
 import org.slf4j.Logger;
 
@@ -9,18 +11,28 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
+import java.util.function.Function;
+
 @Mod(RealmsOfReverie.MOD_ID)
 public class RealmsOfReverie {
-    // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "realmsofreverie";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    // The constructor for the mod class is the first code that is run when your mod is loaded.
-    // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public RealmsOfReverie(IEventBus modEventBus, ModContainer modContainer)
-    {
+    public RealmsOfReverie(IEventBus modEventBus, ModContainer modContainer) {
         EffectRegistry.register(modEventBus);
+
+//        modContainer.registerConfig(ModConfig.Type.SERVER, Config.SPEC, String.format("%s-server.toml", MOD_ID));
+    }
+
+//    public static void init(Path folder) {
+//        ConfigHandler.load(folder.resolve("realmsofreverietectonic.json"));
+//    }
+
+    public static ResourceLocation id(String name) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
+    }
+
+    public static <T, U> Codec<T> withAlternative(final Codec<T> primary, final Codec<U> alternative, final Function<U, T> converter) {
+        return Codec.withAlternative(primary, alternative, converter);
     }
 }
