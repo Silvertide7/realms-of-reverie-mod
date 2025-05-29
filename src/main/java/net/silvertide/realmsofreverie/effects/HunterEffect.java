@@ -24,7 +24,7 @@ public class HunterEffect extends MobEffect {
             serverPlayer.serverLevel()
                 .getNearbyEntities(targetClazz, TargetingConditions.forCombat(), serverPlayer, AABB.ofSize(serverPlayer.position(), distanceScanned, distanceScanned, distanceScanned))
                 .forEach(nearbyEntity -> {
-                    nearbyEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 30));
+                    nearbyEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 21));
             });
         }
 
@@ -33,6 +33,6 @@ public class HunterEffect extends MobEffect {
 
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-        return duration % Math.max(120 / amplifier, 20) == 0;
+        return duration % Math.max(100 - amplifier * 20, 20) == 0;
     }
 }

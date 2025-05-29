@@ -3,12 +3,12 @@ package net.silvertide.realmsofreverie;
 import com.mojang.serialization.Codec;
 import net.minecraft.resources.ResourceLocation;
 import net.silvertide.realmsofreverie.registry.EffectRegistry;
+import net.silvertide.realmsofreverie.registry.PlacementRegistry;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 
 import java.util.function.Function;
@@ -18,15 +18,10 @@ public class RealmsOfReverie {
     public static final String MOD_ID = "realmsofreverie";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public RealmsOfReverie(IEventBus modEventBus, ModContainer modContainer) {
+    public RealmsOfReverie(IEventBus modEventBus) {
         EffectRegistry.register(modEventBus);
-
-//        modContainer.registerConfig(ModConfig.Type.SERVER, Config.SPEC, String.format("%s-server.toml", MOD_ID));
+        PlacementRegistry.register(modEventBus);
     }
-
-//    public static void init(Path folder) {
-//        ConfigHandler.load(folder.resolve("realmsofreverietectonic.json"));
-//    }
 
     public static ResourceLocation id(String name) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
