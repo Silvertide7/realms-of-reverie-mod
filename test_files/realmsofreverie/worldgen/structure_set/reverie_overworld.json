@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "dungeons_arise:small_blimp",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 343480671,
+    "spacing": 8,
+    "separation": 7,
+    "type": "realmsofreverie:advanced_random_spread"
+  }
+}

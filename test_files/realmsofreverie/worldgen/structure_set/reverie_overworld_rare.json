@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "dungeons_arise:heavenly_conqueror",
+      "weight": 4
+    }
+  ],
+  "placement": {
+    "salt": 123412671,
+    "spacing": 2,
+    "separation": 1,
+    "super_exclusion_zone": {
+      "other_set": "#realmsofreverie:common_avoid",
+      "chunk_count": 2
+    },
+    "type": "realmsofreverie:advanced_random_spread"
+  }
+}

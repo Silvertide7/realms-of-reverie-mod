@@ -1,0 +1,8 @@
+{
+  "replace": true,
+  "values": [
+    "minecraft:villages",
+    "realmsofreverie:reverie_overworld",
+    "realmsofreverie:reverie_ocean"
+  ]
+}

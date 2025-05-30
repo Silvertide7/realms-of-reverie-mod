@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "dungeons_arise_seven_seas:corsair_corvette",
+      "weight": 4
+    }
+  ],
+  "placement": {
+    "salt": 164321671,
+    "spacing": 8,
+    "separation": 7,
+    "type": "realmsofreverie:advanced_random_spread"
+  }
+}
