@@ -59,9 +59,9 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
         this.superExclusionZone = superExclusionZone;
 
         // Helpful validation to ensure that spacing value is always greater than separation value
-        if (spacing <= separation) {
+        if (spacing < separation) {
             throw new RuntimeException("""
-                Spacing cannot be less or equal to separation.
+                Spacing cannot be less than separation.
                 Please correct this error as there's no way to spawn this structure properly
                     Spacing: %s
                     Separation: %s.

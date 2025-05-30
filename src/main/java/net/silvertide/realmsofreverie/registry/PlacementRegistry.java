@@ -43,7 +43,7 @@ public final class PlacementRegistry {
                 RealmsOfReverie.MOD_ID
         );
 
-        ADVANCED_RANDOM_SPREAD = STRUCTURE_PLACEMENT_TYPES.register("reverie_advanced_random_spread", () -> explicitStructureTypeTyping(AdvancedRandomSpread.CODEC));
+        ADVANCED_RANDOM_SPREAD = STRUCTURE_PLACEMENT_TYPES.register("advanced_random_spread", () -> explicitStructureTypeTyping(AdvancedRandomSpread.CODEC));
     }
 }
 
