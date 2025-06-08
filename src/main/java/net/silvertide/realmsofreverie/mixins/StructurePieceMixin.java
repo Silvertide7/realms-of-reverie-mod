@@ -17,7 +17,7 @@ public class StructurePieceMixin {
             ordinal = 0,
             argsOnly = true
     ) // Taken from Tectonic
-    private static BoundingBox tectonic(BoundingBox boundingBox, StructurePieceType type) {
+    private static BoundingBox tectonic$lowerOceanMonuments(BoundingBox boundingBox, StructurePieceType type) {
         if (type == StructurePieceType.OCEAN_MONUMENT_BUILDING){
             return boundingBox.moved(0, -40, 0);
         }
