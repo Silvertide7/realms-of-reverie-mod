@@ -3,6 +3,7 @@ plugins {
     id 'maven-publish'
     id 'net.neoforged.moddev' version '2.0.80'
     id 'idea'
+    id "me.modmuss50.mod-publish-plugin" version "0.8.3"
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -19,7 +20,10 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
-    maven { url = "https://cursemaven.com" }
+    maven {
+        url 'https://cursemaven.com'
+        content { includeGroup 'curse.maven' }
+    }
 }
 
 base {
@@ -114,7 +118,8 @@ configurations {
 
 dependencies {
     // PROJECT MMO ************************************************************************************************
-//    implementation "curse.maven:pmmo-353935:${pmmo_version}"
+    implementation "curse.maven:pmmo-353935:${pmmo_version}"
+    implementation "curse.maven:parcool-482378:${parcool_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -144,17 +149,24 @@ sourceSets.main.resources.srcDir generateModMetadata
 // To avoid having to run "generateModMetadata" manually, make it run on every project reload
 neoForge.ideSyncTask generateModMetadata
 
-// Example configuration to allow publishing using the maven-publish plugin
-publishing {
-    publications {
-        register('mavenJava', MavenPublication) {
-            from components.java
-        }
-    }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/repo"
-        }
+
+publishMods {
+    file = jar.archiveFile
+    modLoaders.add("neoforge")
+    changelog = new File("$project.rootDir/CHANGELOG.md").getText('UTF-8')
+    version = "${minecraft_version}-${mod_version}"
+    type = STABLE
+    displayName = "realmsofreverie-${minecraft_version}-${mod_version}"
+
+    curseforge {
+        projectId = "${curseforge_project}"
+        accessToken = System.getenv("CF_TOKEN")
+
+        minecraftVersions.add(minecraft_version)
+        javaVersions.add(JavaVersion.VERSION_21)
+
+        clientRequired = true
+        serverRequired = true
     }
 }
 

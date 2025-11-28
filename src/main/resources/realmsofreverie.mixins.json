@@ -2,9 +2,8 @@
   "required": true,
   "minVersion": "0.7",
   "package": "net.silvertide.realmsofreverie.mixins",
-  "refmap": "realms_of_reverie.refmap.json",
   "compatibilityLevel": "JAVA_21",
-  "mixins": ["StructurePieceMixin"],
+  "mixins": [],
   "server": [],
   "client": [],
   "injectors": {
