@@ -11,33 +11,42 @@ import java.util.List;
 import java.util.Map;
 
 public final class ParcoolUtils {
+    public static final String PARCOOL_SKILL = "acrobatics";
 
-    public static final Map<Long, List<Class<? extends Action>>> SKILL_LIMITATIONS =
+    private static final Map<Long, List<Class<? extends Action>>> SKILL_LIMITATIONS =
             Map.of(
                     1L, List.of(Crawl.class)
             );
 
     private ParcoolUtils() { throw new AssertionError("Utility class");}
 
-    public static void turnOnLimitations(Limitation limitation) {
-        if(!limitation.isEnabled()) limitation.enable();
+    public static void refreshLimitations(ServerPlayer player) {
+        refreshLimitations(player, -1L);
     }
 
-    public static void refreshLimitations(ServerPlayer player) {
+    public static void refreshLimitations(ServerPlayer player, long skillLevel) {
         Limitation limitation = Limitation.getIndividual(player);
         turnOnLimitations(limitation);
         disableAllLimitations(limitation);
-        enableParcoolLimitations(player, limitation);
+        enableParcoolLimitations(player, limitation, skillLevel);
+        limitation.apply();
     }
 
-    public static void disableAllLimitations(Limitation limitation) {
+    private static void turnOnLimitations(Limitation limitation) {
+        if(!limitation.isEnabled()) limitation.enable();
+    }
+
+    private static void disableAllLimitations(Limitation limitation) {
         Actions.LIST.forEach(action -> {
             limitation.permit(action, false);
         });
     }
 
-    public static void enableParcoolLimitations(ServerPlayer serverPlayer, Limitation limitation) {
-        long acrobaticsLevel = APIUtils.getLevel("acrobatics", serverPlayer);
+    private static void enableParcoolLimitations(ServerPlayer serverPlayer, Limitation limitation, long explicitSkillLevel) {
+        long acrobaticsLevel = explicitSkillLevel;
+        if(explicitSkillLevel < 0L) {
+            acrobaticsLevel = APIUtils.getLevel(PARCOOL_SKILL, serverPlayer);
+        }
         long maxLevel = SKILL_LIMITATIONS.keySet().stream()
                 .mapToLong(Long::longValue)
                 .max()
@@ -50,7 +59,7 @@ public final class ParcoolUtils {
         }
     }
 
-    public static void enableAcrobaticsLevelActions(long skillLevel, Limitation limitation) {
+    private static void enableAcrobaticsLevelActions(long skillLevel, Limitation limitation) {
         var actions = SKILL_LIMITATIONS.get(skillLevel);
         if (actions == null || actions.isEmpty()) {
             return;

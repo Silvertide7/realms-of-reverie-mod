@@ -1,6 +1,5 @@
 package net.silvertide.realmsofreverie.events;
 
-import com.alrex.parcool.api.unstable.Limitation;
 import harmonised.pmmo.api.events.XpEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -21,16 +20,12 @@ public class ParcoolEvents {
         }
     }
 
-    @SubscribeEvent(priority= EventPriority.LOW)
+    @SubscribeEvent(priority=EventPriority.LOW)
     public static void onAcrobaticsSkillUp(XpEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) return;
-        if (!"acrobatics".equals(event.skill)) return;
+        if (!ParcoolUtils.PARCOOL_SKILL.equals(event.skill)) return;
         if (!event.isLevelUp()) return;
 
-        Limitation limitation = Limitation.getIndividual(serverPlayer);
-
-        for (long level = event.startLevel() + 1L; level <= event.endLevel(); level++) {
-            ParcoolUtils.enableAcrobaticsLevelActions(level, limitation);
-        }
+        ParcoolUtils.refreshLimitations(serverPlayer, event.endLevel());
     }
 }
