@@ -1,4 +1,4 @@
-package net.silvertide.realmsofreverie.helpers;
+package net.silvertide.realmsofreverie.utils;
 
 import com.alrex.parcool.api.unstable.Limitation;
 import com.alrex.parcool.common.action.Action;
@@ -19,13 +19,24 @@ public final class ParcoolUtils {
 
     private ParcoolUtils() { throw new AssertionError("Utility class");}
 
+    public static void turnOnLimitations(Limitation limitation) {
+        if(!limitation.isEnabled()) limitation.enable();
+    }
+
+    public static void refreshLimitations(ServerPlayer player) {
+        Limitation limitation = Limitation.getIndividual(player);
+        turnOnLimitations(limitation);
+        disableAllLimitations(limitation);
+        enableParcoolLimitations(player, limitation);
+    }
+
     public static void disableAllLimitations(Limitation limitation) {
-        Actions.LIST.stream().forEach(action -> {
+        Actions.LIST.forEach(action -> {
             limitation.permit(action, false);
         });
     }
 
-    public static void updateParcoolLimitations(ServerPlayer serverPlayer, Limitation limitation) {
+    public static void enableParcoolLimitations(ServerPlayer serverPlayer, Limitation limitation) {
         long acrobaticsLevel = APIUtils.getLevel("acrobatics", serverPlayer);
         long maxLevel = SKILL_LIMITATIONS.keySet().stream()
                 .mapToLong(Long::longValue)
