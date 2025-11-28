@@ -21,14 +21,14 @@ public final class ParcoolUtils {
     private ParcoolUtils() { throw new AssertionError("Utility class");}
 
     public static void refreshLimitations(ServerPlayer player) {
-        refreshLimitations(player, -1L);
+        refreshLimitations(player, APIUtils.getLevel(PARCOOL_SKILL, player));
     }
 
     public static void refreshLimitations(ServerPlayer player, long skillLevel) {
         Limitation limitation = Limitation.getIndividual(player);
         turnOnLimitations(limitation);
         disableAllLimitations(limitation);
-        enableParcoolLimitations(player, limitation, skillLevel);
+        enableParcoolLimitations(limitation, skillLevel);
         limitation.apply();
     }
 
@@ -42,20 +42,16 @@ public final class ParcoolUtils {
         });
     }
 
-    private static void enableParcoolLimitations(ServerPlayer serverPlayer, Limitation limitation, long explicitSkillLevel) {
-        long acrobaticsLevel = explicitSkillLevel;
-        if(explicitSkillLevel < 0L) {
-            acrobaticsLevel = APIUtils.getLevel(PARCOOL_SKILL, serverPlayer);
-        }
+    private static void enableParcoolLimitations(Limitation limitation, long skillLevel) {
         long maxLevel = SKILL_LIMITATIONS.keySet().stream()
                 .mapToLong(Long::longValue)
                 .max()
                 .orElse(0L);
 
-        long effectiveMax = Math.min(acrobaticsLevel, maxLevel);
+        long effectiveMax = Math.min(skillLevel, maxLevel);
 
-        for (long skillLevel = 1L; skillLevel <= effectiveMax; skillLevel++) {
-            enableAcrobaticsLevelActions(skillLevel, limitation);
+        for (long i = 1L; i <= effectiveMax; i++) {
+            enableAcrobaticsLevelActions(i, limitation);
         }
     }
 
