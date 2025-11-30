@@ -1,0 +1,32 @@
+{
+    "parent": "synapticraft:pmmo/acrobatics_2",
+    "display": {
+        "icon": {
+            "item": "minecraft:leather_boots"
+        },
+        "title": {
+            "text": "Vault"
+        },
+        "description": {
+            "text": "Unlocked Vault! Running into blocks while sprinting will allow you to vault over them."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "hidden": true
+    },
+    "criteria": {
+        "acrobatics_level_3": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+                "player": [
+                    {
+                        "condition":"pmmo:skill_level", 
+                        "skill":"acrobatics", 
+                        "level_min": 3, 
+                        "level_max": 20
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -3,32 +3,45 @@ package net.silvertide.realmsofreverie.utils;
 import com.alrex.parcool.api.unstable.Limitation;
 import com.alrex.parcool.common.action.Action;
 import com.alrex.parcool.common.action.Actions;
-import com.alrex.parcool.common.action.impl.Crawl;
+import com.alrex.parcool.common.action.impl.*;
+import com.alrex.parcool.config.ParCoolConfig;
 import harmonised.pmmo.api.APIUtils;
 import net.minecraft.server.level.ServerPlayer;
+import net.silvertide.realmsofreverie.config.ServerConfigs;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public final class ParcoolUtils {
-    public static final String PARCOOL_SKILL = "acrobatics";
-
-    private static final Map<Long, List<Class<? extends Action>>> SKILL_LIMITATIONS =
-            Map.of(
-                    1L, List.of(Crawl.class)
-            );
-
     private ParcoolUtils() { throw new AssertionError("Utility class");}
 
+    // Need FastSwim \ HideInBlock
+    private static final Map<Long, List<Class<? extends Action>>> SKILL_LIMITATIONS = Map.ofEntries(
+            Map.entry(0L, List.of(RideZipline.class, SkyDive.class)),
+            Map.entry(1L, List.of(Crawl.class)),
+            Map.entry(2L, List.of(FastRun.class, Slide.class)),
+            Map.entry(3L, List.of(Vault.class)),
+            Map.entry(4L, List.of(WallJump.class, Dive.class)),
+            Map.entry(5L, List.of(ClingToCliff.class, ClimbPoles.class, ClimbUp.class, JumpFromBar.class, HangDown.class)),
+            Map.entry(6L, List.of(BreakfallReady.class, Tap.class, Roll.class)),
+            Map.entry(7L, List.of(CatLeap.class, Dodge.class)),
+            Map.entry(8L, List.of(WallSlide.class)),
+            Map.entry(9L, List.of(Flipping.class, QuickTurn.class)),
+            Map.entry(10L, List.of(ChargeJump.class)),
+            Map.entry(11L, List.of(VerticalWallRun.class)),
+            Map.entry(12L, List.of(HorizontalWallRun.class))
+    );
+
     public static void refreshLimitations(ServerPlayer player) {
-        refreshLimitations(player, APIUtils.getLevel(PARCOOL_SKILL, player));
+        refreshLimitations(player, APIUtils.getLevel(ServerConfigs.PARCOOL_SKILL.get(), player));
     }
 
     public static void refreshLimitations(ServerPlayer player, long skillLevel) {
         Limitation limitation = Limitation.getIndividual(player);
         turnOnLimitations(limitation);
-        disableAllLimitations(limitation);
-        enableParcoolLimitations(limitation, skillLevel);
+        disableAllActions(limitation);
+        enableActions(limitation, skillLevel);
         limitation.apply();
     }
 
@@ -36,13 +49,13 @@ public final class ParcoolUtils {
         if(!limitation.isEnabled()) limitation.enable();
     }
 
-    private static void disableAllLimitations(Limitation limitation) {
+    private static void disableAllActions(Limitation limitation) {
         Actions.LIST.forEach(action -> {
             limitation.permit(action, false);
         });
     }
 
-    private static void enableParcoolLimitations(Limitation limitation, long skillLevel) {
+    private static void enableActions(Limitation limitation, long skillLevel) {
         long maxLevel = SKILL_LIMITATIONS.keySet().stream()
                 .mapToLong(Long::longValue)
                 .max()
@@ -64,5 +77,41 @@ public final class ParcoolUtils {
         actions.forEach(actionClass -> {
             limitation.permit(actionClass, true);
         });
+    }
+
+    private static Map<Class<? extends Action>, Integer> ACTION_AWARDS = null;
+    private static final List<Class<? extends Action>> ACTIONS_TO_AWARD = List.of(
+            Vault.class,
+            WallJump.class,
+            CatLeap.class
+    );
+
+    private static Map<Class<? extends Action>, Integer> getActionAwards() {
+        if (ACTION_AWARDS == null) {
+            ACTION_AWARDS = new HashMap<>();
+
+            for (Class<? extends Action> actionClass : ACTIONS_TO_AWARD) {
+                int stamina = ParCoolConfig.Server.getInstance()
+                        .getLeastStaminaConsumptionOf(actionClass);
+                ACTION_AWARDS.put(actionClass, stamina);
+            }
+        }
+        return ACTION_AWARDS;
+    }
+
+    public static void awardXp(ServerPlayer player, Action action) {
+        Integer baseXp = getActionAwards().get(action.getClass());
+        if (baseXp == null || baseXp <= 0) return;
+
+        double multiplier = ServerConfigs.XP_MULTI.get();
+        long awardedXp = Math.round(baseXp * multiplier);
+
+        if (awardedXp > 0) {
+            APIUtils.addXp(ServerConfigs.PARCOOL_SKILL.get(), player, awardedXp);
+        }
+    }
+
+    public static void clearActionAwardsCache() {
+        ACTION_AWARDS = null;
     }
 }

@@ -1,0 +1,32 @@
+{
+    "parent": "synapticraft:pmmo/acrobatics_4",
+    "display": {
+        "icon": {
+            "item": "minecraft:spider_eye"
+        },
+        "title": {
+            "text": "Second Story Work"
+        },
+        "description": {
+            "text": "You can now cling to cliffs, climb poles, and jump off of them. Hold the right mouse button to grab the edge of a cliff or an overhead bar (like a fence post). You can then jump up or off as well."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "hidden": true
+    },
+    "criteria": {
+        "acrobatics_level_5": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+                "player": [
+                    {
+                        "condition":"pmmo:skill_level", 
+                        "skill":"acrobatics", 
+                        "level_min": 5,
+                        "level_max": 20
+                    }
+                ]
+            }
+        }
+    }
+}

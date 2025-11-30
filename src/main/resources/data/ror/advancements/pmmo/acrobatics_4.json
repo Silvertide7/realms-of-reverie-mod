@@ -1,0 +1,32 @@
+{
+    "parent": "synapticraft:pmmo/acrobatics_3",
+    "display": {
+        "icon": {
+            "item": "minecraft:golden_boots"
+        },
+        "title": {
+            "text": "Wall Jump"
+        },
+        "description": {
+            "text": "You can jump off off of walls to gain more distance. It's-a-you, Mario!"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "hidden": true
+    },
+    "criteria": {
+        "acrobatics_level_4": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+                "player": [
+                    {
+                        "condition":"pmmo:skill_level", 
+                        "skill":"acrobatics", 
+                        "level_min": 4, 
+                        "level_max": 20
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "parent": "synapticraft:pmmo/acrobatics_6",
+    "display": {
+        "icon": {
+            "item": "minecraft:piston"
+        },
+        "title": {
+            "text": "Cat Leap and Dodge"
+        },
+        "description": {
+            "text": "Tap crouch while sprinting to leap forward! Press r to quickly dodge in a direction."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "hidden": true
+    },
+    "criteria": {
+        "acrobatics_level_7": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+                "player": [
+                    {
+                        "condition":"pmmo:skill_level", 
+                        "skill":"acrobatics", 
+                        "level_min": 7, 
+                        "level_max": 20
+                    }
+                ]
+            }
+        }
+    }
+}

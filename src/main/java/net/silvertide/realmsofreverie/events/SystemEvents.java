@@ -13,4 +13,5 @@ public class SystemEvents {
     public static void onCommandRegister(RegisterCommandsEvent event) {
         CmdRoot.register(event.getDispatcher());
     }
+
 }

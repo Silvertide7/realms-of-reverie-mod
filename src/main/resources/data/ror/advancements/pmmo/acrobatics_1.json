@@ -1,0 +1,32 @@
+{
+    "parent": "synapticraft:pmmo/root",
+    "display": {
+        "icon": {
+            "item": "minecraft:turtle_helmet"
+        },
+        "title": {
+            "text": "Crawl"
+        },
+        "description": {
+            "text": "You can now crawl like a turtle. Hold 'c' to crawl around."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "hidden": true
+    },
+    "criteria": {
+        "acrobatics_level_1": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+                "player": [
+                    {
+                        "condition":"pmmo:skill_level", 
+                        "skill":"acrobatics", 
+                        "level_min": 1, 
+                        "level_max": 20
+                    }
+                ]
+            }
+        }
+    }
+}

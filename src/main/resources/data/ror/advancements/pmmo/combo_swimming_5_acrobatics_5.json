@@ -1,0 +1,38 @@
+{
+    "parent": "synapticraft:pmmo/root",
+    "display": {
+        "icon": {
+            "item": "minecraft:bubble_coral"
+        },
+        "title": {
+            "text": "Dive"
+        },
+        "description": {
+            "text": "You can dive off of cliffs into open water. This can be done by fast running and jumping off of cliffs into a wide open space."
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "hidden": true
+    },
+    "criteria": {
+        "combo_acro_5_swim_5": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+            "player": [
+                {
+                    "condition":"pmmo:skill_level", 
+                    "skill":"swimming", 
+                    "level_min": 5, 
+                    "level_max": 20
+                },
+                {
+                    "condition":"pmmo:skill_level", 
+                    "skill":"acrobatics", 
+                    "level_min": 5, 
+                    "level_max": 20
+                }
+            ]
+            }
+        }
+    }
+}

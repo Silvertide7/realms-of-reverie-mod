@@ -1,0 +1,32 @@
+{
+    "parent": "synapticraft:pmmo/acrobatics_8",
+    "display": {
+        "icon": {
+            "item": "minecraft:diamond_boots"
+        },
+        "title": {
+            "text": "Dodge and Flip [Acrobatics 9]"
+        },
+        "description": {
+            "text": "Tapping a direction and 'r' will dodge that way. Pressing both the left and right keys will make you flip!"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "hidden": true
+    },
+    "criteria": {
+        "acrobatics_level_9": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+                "player": [
+                    {
+                        "condition":"pmmo:skill_level", 
+                        "skill":"acrobatics", 
+                        "level_min": 9, 
+                        "level_max": 20
+                    }
+                ]
+            }
+        }
+    }
+}

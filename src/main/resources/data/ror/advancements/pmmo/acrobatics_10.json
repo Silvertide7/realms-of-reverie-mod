@@ -1,0 +1,32 @@
+{
+    "parent": "synapticraft:pmmo/acrobatics_9",
+    "display": {
+        "icon": {
+            "item": "minecraft:netherite_boots"
+        },
+        "title": {
+            "text": "Vertical Wall Run [Acrobatics 10]"
+        },
+        "description": {
+            "text": "While sprinting at a wall you can look up and jump to run up it a ways."
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "hidden": true
+    },
+    "criteria": {
+        "acrobatics_level_10": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+                "player": [
+                    {
+                        "condition":"pmmo:skill_level", 
+                        "skill":"acrobatics", 
+                        "level_min": 10, 
+                        "level_max": 20
+                    }
+                ]
+            }
+        }
+    }
+}
