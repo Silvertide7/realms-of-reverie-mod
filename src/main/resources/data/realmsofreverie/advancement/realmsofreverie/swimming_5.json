@@ -1,0 +1,35 @@
+{
+    "parent": "minecraft:adventure/root",
+    "display": {
+        "icon": {
+            "item": "minecraft:bubble_coral"
+        },
+        "title": {
+            "text": "Fast Swim"
+        },
+        "description": {
+            "text": "Your swimming technique has leveled up! You can swim faster underwater."
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "hidden": true
+    },
+    "criteria": {
+        "swimming_5": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+            "player": [
+                {
+                    "condition":"pmmo:skill_level", 
+                    "skill":"swimming", 
+                    "level_min": 5, 
+                    "level_max": 20
+                }
+            ]
+            }
+        }
+    },
+    "requirements": [
+        ["swimming_5"]
+    ]
+}

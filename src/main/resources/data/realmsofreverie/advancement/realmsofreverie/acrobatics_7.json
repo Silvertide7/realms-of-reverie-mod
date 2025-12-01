@@ -1,32 +1,35 @@
 {
-    "parent": "synapticraft:pmmo/acrobatics_7",
+    "parent": "realmsofreverie:parcool/acrobatics_6",
     "display": {
         "icon": {
-            "item": "minecraft:diamond_boots"
+            "item": "minecraft:piston"
         },
         "title": {
-            "text": "Wall Slide [Acrobatics 9]"
+            "text": "Cat Leap and Dodge"
         },
         "description": {
-            "text": "You can slide down walls to negate fall damage. Hold the right mouse button while next to a wall to slide down it."
+            "text": "Tap crouch while sprinting to leap forward! Press r to quickly dodge in a direction."
         },
         "frame": "task",
         "show_toast": true,
         "hidden": true
     },
     "criteria": {
-        "acrobatics_level_8": {
+        "acrobatics_level_7": {
             "trigger": "pmmo:skill_up",
             "conditions": {
                 "player": [
                     {
                         "condition":"pmmo:skill_level", 
                         "skill":"acrobatics", 
-                        "level_min": 8, 
+                        "level_min": 7, 
                         "level_max": 20
                     }
                 ]
             }
         }
-    }
+    },
+    "requirements": [
+        ["acrobatics_level_7"]
+    ]
 }

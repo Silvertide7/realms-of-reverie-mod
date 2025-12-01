@@ -16,13 +16,13 @@ import java.util.Map;
 public final class ParcoolUtils {
     private ParcoolUtils() { throw new AssertionError("Utility class");}
 
-    // Need FastSwim \ HideInBlock
-    private static final Map<Long, List<Class<? extends Action>>> SKILL_LIMITATIONS = Map.ofEntries(
+    // Need  HideInBlock
+    private static final Map<Long, List<Class<? extends Action>>> LAND_ACTIONS = Map.ofEntries(
             Map.entry(0L, List.of(RideZipline.class, SkyDive.class)),
             Map.entry(1L, List.of(Crawl.class)),
             Map.entry(2L, List.of(FastRun.class, Slide.class)),
             Map.entry(3L, List.of(Vault.class)),
-            Map.entry(4L, List.of(WallJump.class, Dive.class)),
+            Map.entry(4L, List.of(WallJump.class)),
             Map.entry(5L, List.of(ClingToCliff.class, ClimbPoles.class, ClimbUp.class, JumpFromBar.class, HangDown.class)),
             Map.entry(6L, List.of(BreakfallReady.class, Tap.class, Roll.class)),
             Map.entry(7L, List.of(CatLeap.class, Dodge.class)),
@@ -33,15 +33,21 @@ public final class ParcoolUtils {
             Map.entry(12L, List.of(HorizontalWallRun.class))
     );
 
+    private static final Map<Long, List<Class<? extends Action>>> WATER_ACTIONS = Map.ofEntries(
+            Map.entry(5L, List.of(FastSwim.class)),
+            Map.entry(7L, List.of(Dive.class))
+    );
+
     public static void refreshLimitations(ServerPlayer player) {
-        refreshLimitations(player, APIUtils.getLevel(ServerConfigs.PARCOOL_SKILL.get(), player));
+        refreshLimitations(player, APIUtils.getLevel(ServerConfigs.PARCOOL_LAND_SKILL.get(), player), APIUtils.getLevel(ServerConfigs.PARCOOL_WATER_SKILL.get(), player));
     }
 
-    public static void refreshLimitations(ServerPlayer player, long skillLevel) {
+    public static void refreshLimitations(ServerPlayer player, long landSkillLevel, long waterSkillLevel) {
         Limitation limitation = Limitation.getIndividual(player);
         turnOnLimitations(limitation);
         disableAllActions(limitation);
-        enableActions(limitation, skillLevel);
+        enableActions(LAND_ACTIONS, limitation, landSkillLevel);
+        enableActions(WATER_ACTIONS, limitation, waterSkillLevel);
         limitation.apply();
     }
 
@@ -55,8 +61,8 @@ public final class ParcoolUtils {
         });
     }
 
-    private static void enableActions(Limitation limitation, long skillLevel) {
-        long maxLevel = SKILL_LIMITATIONS.keySet().stream()
+    private static void enableActions(Map<Long, List<Class<? extends Action>>> actionMap, Limitation limitation, long skillLevel) {
+        long maxLevel = actionMap.keySet().stream()
                 .mapToLong(Long::longValue)
                 .max()
                 .orElse(0L);
@@ -64,12 +70,12 @@ public final class ParcoolUtils {
         long effectiveMax = Math.min(skillLevel, maxLevel);
 
         for (long i = 1L; i <= effectiveMax; i++) {
-            enableAcrobaticsLevelActions(i, limitation);
+            enableActionsForLevel(actionMap, i, limitation);
         }
     }
 
-    private static void enableAcrobaticsLevelActions(long skillLevel, Limitation limitation) {
-        var actions = SKILL_LIMITATIONS.get(skillLevel);
+    private static void enableActionsForLevel(Map<Long, List<Class<? extends Action>>> actionMap, long skillLevel, Limitation limitation) {
+        var actions = actionMap.get(skillLevel);
         if (actions == null || actions.isEmpty()) {
             return;
         }
@@ -78,6 +84,8 @@ public final class ParcoolUtils {
             limitation.permit(actionClass, true);
         });
     }
+
+    // --- Award XP For Parcool Actions ---
 
     private static Map<Class<? extends Action>, Integer> ACTION_AWARDS = null;
     private static final List<Class<? extends Action>> ACTIONS_TO_AWARD = List.of(
@@ -107,7 +115,7 @@ public final class ParcoolUtils {
         long awardedXp = Math.round(baseXp * multiplier);
 
         if (awardedXp > 0) {
-            APIUtils.addXp(ServerConfigs.PARCOOL_SKILL.get(), player, awardedXp);
+            APIUtils.addXp(ServerConfigs.PARCOOL_LAND_SKILL.get(), player, awardedXp);
         }
     }
 

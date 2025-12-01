@@ -1,5 +1,5 @@
 {
-    "parent": "synapticraft:pmmo/acrobatics_8",
+    "parent": "realmsofreverie:parcool/acrobatics_8",
     "display": {
         "icon": {
             "item": "minecraft:diamond_boots"
@@ -28,5 +28,8 @@
                 ]
             }
         }
-    }
+    },
+    "requirements": [
+        ["acrobatics_level_9"]
+    ]
 }

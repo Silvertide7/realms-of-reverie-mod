@@ -1,5 +1,5 @@
 {
-    "parent": "synapticraft:pmmo/acrobatics_3",
+    "parent": "realmsofreverie:parcool/acrobatics_3",
     "display": {
         "icon": {
             "item": "minecraft:golden_boots"
@@ -28,5 +28,8 @@
                 ]
             }
         }
-    }
+    },
+    "requirements": [
+        ["acrobatics_level_4"]
+    ]
 }

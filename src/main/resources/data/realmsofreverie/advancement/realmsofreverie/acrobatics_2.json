@@ -1,32 +1,35 @@
 {
-    "parent": "synapticraft:pmmo/root",
+    "parent": "realmsofreverie:realmsofreverie/acrobatics_1",
     "display": {
         "icon": {
-            "item": "minecraft:turtle_helmet"
+            "item": "minecraft:rabbit_foot"
         },
         "title": {
-            "text": "Crawl"
+            "text": "Fast Run and Slide"
         },
         "description": {
-            "text": "You can now crawl like a turtle. Hold 'c' to crawl around."
+            "text": "Unlocked fast run! Wow, look at you go. You can sprint by pressing left CTRL and also slide by crouching while sprinting."
         },
         "frame": "task",
         "show_toast": true,
         "hidden": true
     },
     "criteria": {
-        "acrobatics_level_1": {
+        "acrobatics_level_2": {
             "trigger": "pmmo:skill_up",
             "conditions": {
                 "player": [
                     {
                         "condition":"pmmo:skill_level", 
                         "skill":"acrobatics", 
-                        "level_min": 1, 
+                        "level_min": 2, 
                         "level_max": 20
                     }
                 ]
             }
         }
-    }
+    },
+    "requirements": [
+        ["acrobatics_level_2"]
+    ]
 }

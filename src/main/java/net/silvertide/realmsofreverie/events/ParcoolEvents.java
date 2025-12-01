@@ -1,6 +1,7 @@
 package net.silvertide.realmsofreverie.events;
 
 import com.alrex.parcool.api.unstable.action.ParCoolActionEvent;
+import harmonised.pmmo.api.APIUtils;
 import harmonised.pmmo.api.events.XpEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -32,11 +33,16 @@ public class ParcoolEvents {
     }
 
     @SubscribeEvent(priority=EventPriority.LOW)
-    public static void onAcrobaticsSkillUp(XpEvent event) {
-        if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) return;
-        if (!ServerConfigs.PARCOOL_SKILL.get().equals(event.skill)) return;
+    public static void onPmmoSkillUp(XpEvent event) {
         if (!event.isLevelUp()) return;
+        if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) return;
 
-        ParcoolUtils.refreshLimitations(serverPlayer, event.endLevel());
+        String landSkill = ServerConfigs.PARCOOL_LAND_SKILL.get();
+        String waterSkill = ServerConfigs.PARCOOL_WATER_SKILL.get();
+        if(landSkill.equals(event.skill)) {
+            ParcoolUtils.refreshLimitations(serverPlayer, event.endLevel(), APIUtils.getLevel(waterSkill, serverPlayer));
+        } else if(waterSkill.equals(event.skill)) {
+            ParcoolUtils.refreshLimitations(serverPlayer, APIUtils.getLevel(landSkill, serverPlayer), event.endLevel());
+        }
     }
 }

@@ -1,5 +1,5 @@
 {
-    "parent": "synapticraft:pmmo/root",
+    "parent": "realmsofreverie:parcool/swimming_5",
     "display": {
         "icon": {
             "item": "minecraft:bubble_coral"
@@ -15,24 +15,21 @@
         "hidden": true
     },
     "criteria": {
-        "combo_acro_5_swim_5": {
+        "swimming_7": {
             "trigger": "pmmo:skill_up",
             "conditions": {
             "player": [
                 {
                     "condition":"pmmo:skill_level", 
                     "skill":"swimming", 
-                    "level_min": 5, 
-                    "level_max": 20
-                },
-                {
-                    "condition":"pmmo:skill_level", 
-                    "skill":"acrobatics", 
-                    "level_min": 5, 
+                    "level_min": 7,
                     "level_max": 20
                 }
             ]
             }
         }
-    }
+    },
+    "requirements": [
+        ["swimming_7"]
+    ]
 }

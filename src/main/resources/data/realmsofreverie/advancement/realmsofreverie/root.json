@@ -1,0 +1,27 @@
+{
+    "criteria": {
+        "player_joined_server": {
+            "trigger": "minecraft:tick"
+        }
+    },
+    "display": {
+        "announce_to_chat": false,
+        "description": {
+            "text": "Don't worry, you'll grow into them."
+        },
+        "frame": "task",
+        "hidden": false,
+        "icon": {
+            "item": "minecraft:leather_boots"
+        },
+        "show_toast": true,
+        "title": {
+            "text": "Acrobatics"
+        }
+    },
+    "requirements": [
+        [
+            "player_joined_server"
+        ]
+    ]
+}

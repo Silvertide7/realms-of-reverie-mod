@@ -1,32 +1,35 @@
 {
-    "parent": "synapticraft:pmmo/acrobatics_5",
+    "parent": "realmsofreverie:parcool/acrobatics_9",
     "display": {
         "icon": {
-            "item": "minecraft:iron_boots"
+            "item": "minecraft:netherite_boots"
         },
         "title": {
-            "text": "Breakfall"
+            "text": "Vertical Wall Run [Acrobatics 10]"
         },
         "description": {
-            "text": "You can now break your fall to reduce damage. Press the parkour button (default is 'r') when hitting the ground to reduce damage."
+            "text": "While sprinting at a wall you can look up and jump to run up it a ways."
         },
-        "frame": "task",
+        "frame": "goal",
         "show_toast": true,
         "hidden": true
     },
     "criteria": {
-        "acrobatics_level_6": {
+        "acrobatics_level_10": {
             "trigger": "pmmo:skill_up",
             "conditions": {
                 "player": [
                     {
                         "condition":"pmmo:skill_level", 
                         "skill":"acrobatics", 
-                        "level_min": 6, 
+                        "level_min": 10, 
                         "level_max": 20
                     }
                 ]
             }
         }
-    }
+    },
+    "requirements": [
+        ["acrobatics_level_10"]
+    ]
 }
