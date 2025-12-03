@@ -16,19 +16,18 @@ import java.util.Map;
 public final class ParcoolUtils {
     private ParcoolUtils() { throw new AssertionError("Utility class");}
 
-    // Need  HideInBlock
     private static final Map<Long, List<Class<? extends Action>>> LAND_ACTIONS = Map.ofEntries(
-            Map.entry(0L, List.of(RideZipline.class, SkyDive.class)),
+            Map.entry(0L, List.of(RideZipline.class, SkyDive.class, QuickTurn.class)),
             Map.entry(1L, List.of(Crawl.class)),
-            Map.entry(2L, List.of(FastRun.class, Slide.class)),
-            Map.entry(3L, List.of(Vault.class)),
-            Map.entry(4L, List.of(WallJump.class)),
-            Map.entry(5L, List.of(ClingToCliff.class, ClimbPoles.class, ClimbUp.class, JumpFromBar.class, HangDown.class)),
-            Map.entry(6L, List.of(BreakfallReady.class, Tap.class, Roll.class)),
-            Map.entry(7L, List.of(CatLeap.class, Dodge.class)),
-            Map.entry(8L, List.of(WallSlide.class)),
-            Map.entry(9L, List.of(Flipping.class, QuickTurn.class)),
-            Map.entry(10L, List.of(ChargeJump.class)),
+            Map.entry(2L, List.of(ChargeJump.class)),
+            Map.entry(3L, List.of(FastRun.class, Slide.class)),
+            Map.entry(4L, List.of(Vault.class)),
+            Map.entry(5L, List.of(WallJump.class)),
+            Map.entry(6L, List.of(ClingToCliff.class, ClimbPoles.class, ClimbUp.class, JumpFromBar.class, HangDown.class)),
+            Map.entry(7L, List.of(BreakfallReady.class, Tap.class, Roll.class)),
+            Map.entry(8L, List.of(CatLeap.class, Dodge.class)),
+            Map.entry(9L, List.of(WallSlide.class)),
+            Map.entry(10L, List.of(Flipping.class, HideInBlock.class)),
             Map.entry(11L, List.of(VerticalWallRun.class)),
             Map.entry(12L, List.of(HorizontalWallRun.class))
     );
@@ -69,7 +68,7 @@ public final class ParcoolUtils {
 
         long effectiveMax = Math.min(skillLevel, maxLevel);
 
-        for (long i = 1L; i <= effectiveMax; i++) {
+        for (long i = 0L; i <= effectiveMax; i++) {
             enableActionsForLevel(actionMap, i, limitation);
         }
     }

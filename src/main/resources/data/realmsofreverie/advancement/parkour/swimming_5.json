@@ -1,28 +1,29 @@
 {
-    "parent": "realmsofreverie:parcool/swimming_5",
+    "parent": "realmsofreverie:parkour/root",
     "display": {
         "icon": {
-            "item": "minecraft:bubble_coral"
+            "count": 1,
+            "id": "minecraft:bubble_coral"
         },
         "title": {
-            "text": "Dive"
+            "text": "Fast Swim"
         },
         "description": {
-            "text": "You can dive off of cliffs into open water. This can be done by fast running and jumping off of cliffs into a wide open space."
+            "text": "Sprint swimming is now faster than before, but takes more stamina."
         },
-        "frame": "goal",
+        "frame": "task",
         "show_toast": true,
         "hidden": true
     },
     "criteria": {
-        "swimming_7": {
+        "swimming_5": {
             "trigger": "pmmo:skill_up",
             "conditions": {
             "player": [
                 {
                     "condition":"pmmo:skill_level", 
                     "skill":"swimming", 
-                    "level_min": 7,
+                    "level_min": 5, 
                     "level_max": 20
                 }
             ]
@@ -30,6 +31,6 @@
         }
     },
     "requirements": [
-        ["swimming_7"]
+        ["swimming_5"]
     ]
 }

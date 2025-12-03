@@ -1,28 +1,29 @@
 {
-    "parent": "realmsofreverie:parcool/acrobatics_6",
+    "parent": "realmsofreverie:parkour/acrobatics_9",
     "display": {
         "icon": {
-            "item": "minecraft:piston"
+            "count": 1,
+            "id": "minecraft:golden_boots"
         },
         "title": {
-            "text": "Cat Leap and Dodge"
+            "text": "Flip and Hide in Bush"
         },
         "description": {
-            "text": "Tap crouch while sprinting to leap forward! Press r to quickly dodge in a direction."
+            "text": "Tapping both the left and right keys will make you flip! Also press 'r' to hide in bushes or hay."
         },
         "frame": "task",
         "show_toast": true,
         "hidden": true
     },
     "criteria": {
-        "acrobatics_level_7": {
+        "acrobatics_level_10": {
             "trigger": "pmmo:skill_up",
             "conditions": {
                 "player": [
                     {
                         "condition":"pmmo:skill_level", 
                         "skill":"acrobatics", 
-                        "level_min": 7, 
+                        "level_min": 10, 
                         "level_max": 20
                     }
                 ]
@@ -30,6 +31,6 @@
         }
     },
     "requirements": [
-        ["acrobatics_level_7"]
+        ["acrobatics_level_10"]
     ]
 }

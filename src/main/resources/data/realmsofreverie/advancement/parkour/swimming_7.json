@@ -1,28 +1,29 @@
 {
-    "parent": "minecraft:adventure/root",
+    "parent": "realmsofreverie:parkour/swimming_5",
     "display": {
         "icon": {
-            "item": "minecraft:bubble_coral"
+            "count": 1,
+            "id": "minecraft:pufferfish_bucket"
         },
         "title": {
-            "text": "Fast Swim"
+            "text": "Dive"
         },
         "description": {
-            "text": "Your swimming technique has leveled up! You can swim faster underwater."
+            "text": "You can dive off of cliffs into open water. This can be done by fast running and jumping into water."
         },
         "frame": "goal",
         "show_toast": true,
         "hidden": true
     },
     "criteria": {
-        "swimming_5": {
+        "swimming_7": {
             "trigger": "pmmo:skill_up",
             "conditions": {
             "player": [
                 {
                     "condition":"pmmo:skill_level", 
                     "skill":"swimming", 
-                    "level_min": 5, 
+                    "level_min": 7,
                     "level_max": 20
                 }
             ]
@@ -30,6 +31,6 @@
         }
     },
     "requirements": [
-        ["swimming_5"]
+        ["swimming_7"]
     ]
 }

@@ -1,28 +1,29 @@
 {
-    "parent": "realmsofreverie:parcool/acrobatics_11",
+    "parent": "realmsofreverie:parkour/acrobatics_8",
     "display": {
         "icon": {
-            "item": "minecraft:netherite_boots"
+            "count": 1,
+            "id": "minecraft:iron_boots"
         },
         "title": {
-            "text": "Vertical Wall Run [Acrobatics 12]"
+            "text": "Wall Slide"
         },
         "description": {
-            "text": "While sprinting at a wall you can look up and jump to run up it a ways."
+            "text": "You can slide down walls to negate fall damage. Hold the right mouse button while next to a wall to slide down it."
         },
-        "frame": "goal",
+        "frame": "task",
         "show_toast": true,
         "hidden": true
     },
     "criteria": {
-        "acrobatics_level_12": {
+        "acrobatics_level_9": {
             "trigger": "pmmo:skill_up",
             "conditions": {
                 "player": [
                     {
                         "condition":"pmmo:skill_level", 
                         "skill":"acrobatics", 
-                        "level_min": 12,
+                        "level_min": 9, 
                         "level_max": 20
                     }
                 ]
@@ -30,6 +31,6 @@
         }
     },
     "requirements": [
-        ["acrobatics_level_12"]
+        ["acrobatics_level_9"]
     ]
 }

@@ -1,0 +1,36 @@
+{
+    "parent": "realmsofreverie:parkour/acrobatics_1",
+    "criteria": {
+        "acrobatics_level_2": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+                "player": [
+                    {
+                        "condition":"pmmo:skill_level",
+                        "skill":"acrobatics",
+                        "level_min": 2,
+                        "level_max": 20
+                    }
+                ]
+            }
+        }
+    },
+    "display": {
+        "icon": {
+            "count": 1,
+            "id": "minecraft:firework_rocket"
+        },
+        "title": {
+            "text": "Charge Jump"
+        },
+        "description": {
+            "text": "Hold 'Left Shift' to charge up, then press jump to jump higher."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "hidden": true
+    },
+    "requirements": [
+        ["acrobatics_level_2"]
+    ]
+}

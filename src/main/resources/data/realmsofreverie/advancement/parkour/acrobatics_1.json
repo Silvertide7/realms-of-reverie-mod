@@ -1,0 +1,36 @@
+{
+    "parent": "realmsofreverie:parkour/root",
+    "criteria": {
+        "acrobatics_level_1": {
+            "trigger": "pmmo:skill_up",
+            "conditions": {
+                "player": [
+                    {
+                        "condition":"pmmo:skill_level",
+                        "skill":"acrobatics",
+                        "level_min": 1,
+                        "level_max": 20
+                    }
+                ]
+            }
+        }
+    },
+    "display": {
+        "description": {
+            "text": "Press 'c' to crawl around on the ground."
+        },
+        "icon": {
+            "count": 1,
+            "id": "minecraft:turtle_helmet"
+        },
+        "title": {
+            "text": "Crawl"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "hidden": true
+    },
+    "requirements": [
+        ["acrobatics_level_1"]
+    ]
+}

@@ -1,28 +1,29 @@
 {
-    "parent": "realmsofreverie:parcool/acrobatics_9",
+    "parent": "realmsofreverie:parkour/acrobatics_7",
     "display": {
         "icon": {
-            "item": "minecraft:netherite_boots"
+            "count": 1,
+            "id": "minecraft:piston"
         },
         "title": {
-            "text": "Vertical Wall Run [Acrobatics 10]"
+            "text": "Cat Leap and Dodge"
         },
         "description": {
-            "text": "While sprinting at a wall you can look up and jump to run up it a ways."
+            "text": "Tap Left Shift while sprinting to leap forward! Tap 'r' to quickly dodge in a direction."
         },
-        "frame": "goal",
+        "frame": "task",
         "show_toast": true,
         "hidden": true
     },
     "criteria": {
-        "acrobatics_level_10": {
+        "acrobatics_level_8": {
             "trigger": "pmmo:skill_up",
             "conditions": {
                 "player": [
                     {
                         "condition":"pmmo:skill_level", 
                         "skill":"acrobatics", 
-                        "level_min": 10, 
+                        "level_min": 8, 
                         "level_max": 20
                     }
                 ]
@@ -30,6 +31,6 @@
         }
     },
     "requirements": [
-        ["acrobatics_level_10"]
+        ["acrobatics_level_8"]
     ]
 }

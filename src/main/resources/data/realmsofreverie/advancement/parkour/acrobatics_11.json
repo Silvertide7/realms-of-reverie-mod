@@ -1,28 +1,29 @@
 {
-    "parent": "realmsofreverie:parcool/acrobatics_3",
+    "parent": "realmsofreverie:parkour/acrobatics_10",
     "display": {
         "icon": {
-            "item": "minecraft:golden_boots"
+            "count": 1,
+            "id": "minecraft:diamond_boots"
         },
         "title": {
-            "text": "Wall Jump"
+            "text": "Vertical Wall Run"
         },
         "description": {
-            "text": "You can jump off off of walls to gain more distance. It's-a-you, Mario!"
+            "text": "While sprinting at a wall you can look up and jump to run up it a few steps."
         },
         "frame": "task",
         "show_toast": true,
         "hidden": true
     },
     "criteria": {
-        "acrobatics_level_4": {
+        "acrobatics_level_11": {
             "trigger": "pmmo:skill_up",
             "conditions": {
                 "player": [
                     {
                         "condition":"pmmo:skill_level", 
                         "skill":"acrobatics", 
-                        "level_min": 4, 
+                        "level_min": 11,
                         "level_max": 20
                     }
                 ]
@@ -30,6 +31,6 @@
         }
     },
     "requirements": [
-        ["acrobatics_level_4"]
+        ["acrobatics_level_11"]
     ]
 }

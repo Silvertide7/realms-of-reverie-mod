@@ -1,28 +1,29 @@
 {
-    "parent": "realmsofreverie:parcool/acrobatics_8",
+    "parent": "realmsofreverie:parkour/acrobatics_2",
     "display": {
         "icon": {
-            "item": "minecraft:diamond_boots"
+            "count": 1,
+            "id": "minecraft:rabbit_foot"
         },
         "title": {
-            "text": "Dodge and Flip [Acrobatics 9]"
+            "text": "Fast Run and Slide"
         },
         "description": {
-            "text": "Tapping a direction and 'r' will dodge that way. Pressing both the left and right keys will make you flip!"
+            "text": "You can now fast run! If you press 'c' while fast running you will slide."
         },
         "frame": "task",
         "show_toast": true,
         "hidden": true
     },
     "criteria": {
-        "acrobatics_level_9": {
+        "acrobatics_level_3": {
             "trigger": "pmmo:skill_up",
             "conditions": {
                 "player": [
                     {
                         "condition":"pmmo:skill_level", 
                         "skill":"acrobatics", 
-                        "level_min": 9, 
+                        "level_min": 3, 
                         "level_max": 20
                     }
                 ]
@@ -30,6 +31,6 @@
         }
     },
     "requirements": [
-        ["acrobatics_level_9"]
+        ["acrobatics_level_3"]
     ]
 }
