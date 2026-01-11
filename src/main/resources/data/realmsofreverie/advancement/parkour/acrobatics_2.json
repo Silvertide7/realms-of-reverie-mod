@@ -4,14 +4,12 @@
         "acrobatics_level_2": {
             "trigger": "pmmo:skill_up",
             "conditions": {
-                "player": [
-                    {
-                        "condition":"pmmo:skill_level",
-                        "skill":"acrobatics",
-                        "level_min": 2,
-                        "level_max": 20
-                    }
-                ]
+                "level": {
+                    "max": 20,
+                    "min": 2
+
+                },
+                "skill": "acrobatics"
             }
         }
     },

@@ -4,6 +4,7 @@ import com.alrex.parcool.api.unstable.Limitation;
 import com.alrex.parcool.common.action.Action;
 import com.alrex.parcool.common.action.Actions;
 import com.alrex.parcool.common.action.impl.*;
+import com.alrex.parcool.common.stamina.StaminaType;
 import com.alrex.parcool.config.ParCoolConfig;
 import harmonised.pmmo.api.APIUtils;
 import net.minecraft.server.level.ServerPlayer;
@@ -47,6 +48,7 @@ public final class ParcoolUtils {
         disableAllActions(limitation);
         enableActions(LAND_ACTIONS, limitation, landSkillLevel);
         enableActions(WATER_ACTIONS, limitation, waterSkillLevel);
+        limitation.setStaminaType(StaminaType.PARAGLIDER);
         limitation.apply();
     }
 

@@ -19,14 +19,12 @@
         "swimming_5": {
             "trigger": "pmmo:skill_up",
             "conditions": {
-            "player": [
-                {
-                    "condition":"pmmo:skill_level", 
-                    "skill":"swimming", 
-                    "level_min": 5, 
-                    "level_max": 20
-                }
-            ]
+                "level": {
+                    "max": 20,
+                    "min": 5
+
+                },
+                "skill": "swimming"
             }
         }
     },
