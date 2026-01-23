@@ -20,6 +20,8 @@ public class ParcoolEvents {
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         Player player = event.getEntity();
         if (player instanceof ServerPlayer serverPlayer) {
+            RealmsOfReverie.printDebug("OnPlayerJoin Event");
+            RealmsOfReverie.printDebug("------------------------");
             ParcoolUtils.refreshLimitations(serverPlayer);
         }
     }
@@ -28,6 +30,7 @@ public class ParcoolEvents {
     public static void onParcoolActionStop(ParCoolActionEvent.StopEvent event) {
         Player player = event.getPlayer();
         if (player instanceof ServerPlayer serverPlayer) {
+            RealmsOfReverie.printDebug("onParcoolActionStop Event");
             ParcoolUtils.awardXp(serverPlayer, event.getAction());
         }
     }
@@ -37,11 +40,16 @@ public class ParcoolEvents {
         if (!event.isLevelUp()) return;
         if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) return;
 
+        RealmsOfReverie.printDebug("onPmmoSkillUp Event");
+        RealmsOfReverie.printDebug("------------------------");
+
         String landSkill = ServerConfigs.PARCOOL_LAND_SKILL.get();
         String waterSkill = ServerConfigs.PARCOOL_WATER_SKILL.get();
         if(landSkill.equals(event.skill)) {
+            RealmsOfReverie.printDebug("Land Skill Level Up");
             ParcoolUtils.refreshLimitations(serverPlayer, event.endLevel(), APIUtils.getLevel(waterSkill, serverPlayer));
         } else if(waterSkill.equals(event.skill)) {
+            RealmsOfReverie.printDebug("Water Skill Level Up");
             ParcoolUtils.refreshLimitations(serverPlayer, APIUtils.getLevel(landSkill, serverPlayer), event.endLevel());
         }
     }

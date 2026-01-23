@@ -6,6 +6,7 @@ public class ServerConfigs {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     public static final ModConfigSpec SPEC;
 
+    public static final ModConfigSpec.ConfigValue<Boolean> DEBUG;
     public static final ModConfigSpec.ConfigValue<String> PARCOOL_LAND_SKILL;
     public static final ModConfigSpec.ConfigValue<String> PARCOOL_WATER_SKILL;
 
@@ -14,15 +15,16 @@ public class ServerConfigs {
 
     static {
         BUILDER.push("Realms of Reverie - Parcool Settings");
+        DEBUG = BUILDER.define("debug", false);
 
         BUILDER.comment("Project MMO Skill to use for unlocking Parcool Actions on land.");
-        PARCOOL_LAND_SKILL = BUILDER.worldRestart().define("parcoolLandSkill", "acrobatics");
+        PARCOOL_LAND_SKILL = BUILDER.define("parcoolLandSkill", "acrobatics");
 
         BUILDER.comment("Project MMO Skill to use for unlocking Parcool Actions in water.");
-        PARCOOL_WATER_SKILL = BUILDER.worldRestart().define("parcoolWaterSkill", "swimming");
+        PARCOOL_WATER_SKILL = BUILDER.define("parcoolWaterSkill", "swimming");
 
-        BUILDER.push("XP Multiplier for all awarded xp granted from a parcool action.");
-        XP_MULTI = BUILDER.worldRestart().define("vaultXpMultiplier", 1.0);
+        BUILDER.comment("XP Multiplier for all awarded xp granted from a parcool action.");
+        XP_MULTI = BUILDER.define("vaultXpMultiplier", 1.0);
         BUILDER.pop();
 
 

@@ -1,6 +1,12 @@
 
+1.1.1
+---
+- Fix Project MMO Advancements from new PMMO update. 
+- Set Paraglider stamina type as default
+
+
 1.1.0
--
+---
 Add Parcool and Project MMO Integration. Levels 0 through 12  in acrobatics unlock different parcool abilities.
 - Map.entry(0L, List.of(RideZipline.class, SkyDive.class, QuickTurn.class)),
 - Map.entry(1L, List.of(Crawl.class)),

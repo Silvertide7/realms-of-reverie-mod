@@ -24,4 +24,8 @@ public class RealmsOfReverie {
 
         modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfigs.SPEC, String.format("%s-server.toml", RealmsOfReverie.MOD_ID));
     }
+
+    public static void printDebug(String message) {
+        if(ServerConfigs.DEBUG.get()) LOGGER.debug("ROR Debug: " + message);
+    }
 }

@@ -8,6 +8,7 @@ import com.alrex.parcool.common.stamina.StaminaType;
 import com.alrex.parcool.config.ParCoolConfig;
 import harmonised.pmmo.api.APIUtils;
 import net.minecraft.server.level.ServerPlayer;
+import net.silvertide.realmsofreverie.RealmsOfReverie;
 import net.silvertide.realmsofreverie.config.ServerConfigs;
 
 import java.util.HashMap;
@@ -43,32 +44,55 @@ public final class ParcoolUtils {
     }
 
     public static void refreshLimitations(ServerPlayer player, long landSkillLevel, long waterSkillLevel) {
+        RealmsOfReverie.printDebug("Method - refreshLimitations");
+        RealmsOfReverie.printDebug("landSkillLevel: " + landSkillLevel);
+        RealmsOfReverie.printDebug("waterSkillLevel: " + waterSkillLevel);
+
         Limitation limitation = Limitation.getIndividual(player);
+        printLimitationInformation(limitation);
+
         turnOnLimitations(limitation);
+        setStaminaType(limitation);
+
         disableAllActions(limitation);
         enableActions(LAND_ACTIONS, limitation, landSkillLevel);
         enableActions(WATER_ACTIONS, limitation, waterSkillLevel);
-        limitation.setStaminaType(StaminaType.PARAGLIDER);
+
+        printLimitationInformation(limitation);
+
         limitation.apply();
     }
 
     private static void turnOnLimitations(Limitation limitation) {
-        if(!limitation.isEnabled()) limitation.enable();
+        RealmsOfReverie.printDebug("Method - turnOnLimitations");
+        if(!limitation.isEnabled()){
+            RealmsOfReverie.printDebug("Limitation was not enabled. Enabling");
+            limitation.enable();
+        }
+    }
+
+    private static void setStaminaType(Limitation limitation) {
+        RealmsOfReverie.printDebug("Method - setStaminaType");
+        limitation.setStaminaType(StaminaType.PARAGLIDER);
     }
 
     private static void disableAllActions(Limitation limitation) {
+        RealmsOfReverie.printDebug("Method - disableAllActions");
         Actions.LIST.forEach(action -> {
+            RealmsOfReverie.printDebug("Disabling Action - " + action.descriptorString());
             limitation.permit(action, false);
         });
     }
 
     private static void enableActions(Map<Long, List<Class<? extends Action>>> actionMap, Limitation limitation, long skillLevel) {
+        RealmsOfReverie.printDebug("Method - enableActions");
         long maxLevel = actionMap.keySet().stream()
                 .mapToLong(Long::longValue)
                 .max()
                 .orElse(0L);
 
         long effectiveMax = Math.min(skillLevel, maxLevel);
+        RealmsOfReverie.printDebug("Effective Max: " + effectiveMax);
 
         for (long i = 0L; i <= effectiveMax; i++) {
             enableActionsForLevel(actionMap, i, limitation);
@@ -76,6 +100,7 @@ public final class ParcoolUtils {
     }
 
     private static void enableActionsForLevel(Map<Long, List<Class<? extends Action>>> actionMap, long skillLevel, Limitation limitation) {
+        RealmsOfReverie.printDebug("Method - enableActionsForLevel");
         var actions = actionMap.get(skillLevel);
         if (actions == null || actions.isEmpty()) {
             return;
@@ -83,6 +108,7 @@ public final class ParcoolUtils {
 
         actions.forEach(actionClass -> {
             limitation.permit(actionClass, true);
+            RealmsOfReverie.printDebug("Permitting Action: " + actionClass.descriptorString());
         });
     }
 
@@ -122,5 +148,13 @@ public final class ParcoolUtils {
 
     public static void clearActionAwardsCache() {
         ACTION_AWARDS = null;
+    }
+
+    public static void printLimitationInformation(Limitation limitation) {
+        RealmsOfReverie.printDebug("limitation stamina type: " + limitation.getStaminaType().name());
+        RealmsOfReverie.printDebug("Are actions permitted: ");
+        Actions.LIST.forEach(action -> {
+            RealmsOfReverie.printDebug("Action: " + action.descriptorString() + " isPermitted: " + limitation.isPermitted(action));
+        });
     }
 }
