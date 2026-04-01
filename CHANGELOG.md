@@ -1,4 +1,14 @@
 
+1.1.3
+---
+- Remove debug logs
+- Remove XP awards for stamina
+- Refactor / clean up
+
+1.1.2
+---
+- Add debug logs
+
 1.1.1
 ---
 - Fix Project MMO Advancements from new PMMO update. 
