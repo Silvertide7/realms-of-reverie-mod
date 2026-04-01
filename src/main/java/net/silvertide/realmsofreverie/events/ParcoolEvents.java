@@ -14,22 +14,9 @@ import net.silvertide.realmsofreverie.utils.ParcoolUtils;
 @EventBusSubscriber(modid = RealmsOfReverie.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class ParcoolEvents {
 
-    @SubscribeEvent(priority=EventPriority.LOW)
+    // LOWEST to ensure PMMO has finished loading player data and awarding any scheduled XP.
+    @SubscribeEvent(priority=EventPriority.LOWEST)
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
-        if (event.getEntity() instanceof ServerPlayer serverPlayer) {
-            ParcoolUtils.refreshLimitations(serverPlayer);
-        }
-    }
-
-    @SubscribeEvent(priority=EventPriority.LOW)
-    public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
-        if (event.getEntity() instanceof ServerPlayer serverPlayer) {
-            ParcoolUtils.refreshLimitations(serverPlayer);
-        }
-    }
-
-    @SubscribeEvent(priority=EventPriority.LOW)
-    public static void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
         if (event.getEntity() instanceof ServerPlayer serverPlayer) {
             ParcoolUtils.refreshLimitations(serverPlayer);
         }

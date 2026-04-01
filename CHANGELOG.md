@@ -1,4 +1,9 @@
 
+1.1.4
+---
+- Save limitation changes.
+- Change event priority to ensure pmmo has updated.
+
 1.1.3
 ---
 - Remove debug logs

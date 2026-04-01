@@ -59,6 +59,7 @@ public final class ParcoolUtils {
         enableActions(WATER_ACTIONS, limitation, waterSkillLevel);
 
         limitation.apply();
+        limitation.save();
     }
 
     private static void enableActions(Map<Long, List<Class<? extends Action>>> actionMap, Limitation limitation, long skillLevel) {
