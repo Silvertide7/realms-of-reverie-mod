@@ -12,7 +12,6 @@ import net.minecraft.core.RegistryCodecs;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.util.ExtraCodecs;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement;
@@ -81,11 +80,6 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
                 (this.superExclusionZone.isEmpty() || !(this.superExclusionZone.get()).isPlacementForbidden(structureState, x, z));
     }
 
-    @Override
-    public ChunkPos getPotentialStructureChunk(long seed, int regionX, int regionZ) {
-        return super.getPotentialStructureChunk(seed, regionX, regionZ);
-    }
-
     // Override this method to add coordinate checking.
     // The x and z here is in chunk positions.
     // What we do is we check if the structure is too close to world center and if so, return false.
@@ -126,14 +120,6 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
                 }
             }
             return false;
-        }
-
-        public HolderSet<StructureSet> otherSet() {
-            return this.otherSet;
-        }
-
-        public int chunkCount() {
-            return this.chunkCount;
         }
     }
 }

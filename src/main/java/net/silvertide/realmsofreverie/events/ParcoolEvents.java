@@ -1,10 +1,8 @@
 package net.silvertide.realmsofreverie.events;
 
-import com.alrex.parcool.api.unstable.action.ParCoolActionEvent;
 import harmonised.pmmo.api.APIUtils;
 import harmonised.pmmo.api.events.XpEvent;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -18,20 +16,22 @@ public class ParcoolEvents {
 
     @SubscribeEvent(priority=EventPriority.LOW)
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
-        Player player = event.getEntity();
-        if (player instanceof ServerPlayer serverPlayer) {
-            RealmsOfReverie.printDebug("OnPlayerJoin Event");
-            RealmsOfReverie.printDebug("------------------------");
+        if (event.getEntity() instanceof ServerPlayer serverPlayer) {
             ParcoolUtils.refreshLimitations(serverPlayer);
         }
     }
 
     @SubscribeEvent(priority=EventPriority.LOW)
-    public static void onParcoolActionStop(ParCoolActionEvent.StopEvent event) {
-        Player player = event.getPlayer();
-        if (player instanceof ServerPlayer serverPlayer) {
-            RealmsOfReverie.printDebug("onParcoolActionStop Event");
-            ParcoolUtils.awardXp(serverPlayer, event.getAction());
+    public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
+        if (event.getEntity() instanceof ServerPlayer serverPlayer) {
+            ParcoolUtils.refreshLimitations(serverPlayer);
+        }
+    }
+
+    @SubscribeEvent(priority=EventPriority.LOW)
+    public static void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
+        if (event.getEntity() instanceof ServerPlayer serverPlayer) {
+            ParcoolUtils.refreshLimitations(serverPlayer);
         }
     }
 
@@ -40,16 +40,11 @@ public class ParcoolEvents {
         if (!event.isLevelUp()) return;
         if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) return;
 
-        RealmsOfReverie.printDebug("onPmmoSkillUp Event");
-        RealmsOfReverie.printDebug("------------------------");
-
         String landSkill = ServerConfigs.PARCOOL_LAND_SKILL.get();
         String waterSkill = ServerConfigs.PARCOOL_WATER_SKILL.get();
-        if(landSkill.equals(event.skill)) {
-            RealmsOfReverie.printDebug("Land Skill Level Up");
+        if (landSkill.equals(event.skill)) {
             ParcoolUtils.refreshLimitations(serverPlayer, event.endLevel(), APIUtils.getLevel(waterSkill, serverPlayer));
-        } else if(waterSkill.equals(event.skill)) {
-            RealmsOfReverie.printDebug("Water Skill Level Up");
+        } else if (waterSkill.equals(event.skill)) {
             ParcoolUtils.refreshLimitations(serverPlayer, APIUtils.getLevel(landSkill, serverPlayer), event.endLevel());
         }
     }

@@ -30,6 +30,6 @@ public class CmdNodeAdmin {
         for (ServerPlayer player : EntityArgument.getPlayers(ctx, TARGET_ARG)) {
             ParcoolUtils.refreshLimitations(player);
         }
-        return 0;
+        return 1;
     }
 }
