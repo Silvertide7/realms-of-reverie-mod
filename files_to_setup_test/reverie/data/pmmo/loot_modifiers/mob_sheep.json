@@ -1,0 +1,21 @@
+{
+  "type": "pmmo:rare_drop",
+  "chance": 0.05,
+  "conditions": [
+    {
+      "condition": "minecraft:killed_by_player"
+    },
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:entities/sheep"
+    },
+    {
+      "condition": "pmmo:skill_level_kill",
+      "level_max": 21,
+      "level_min": 5,
+      "skill": "husbandry"
+    }
+  ],
+  "count": 1,
+  "item": "minecraft:string"
+}

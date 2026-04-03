@@ -1,0 +1,18 @@
+{
+  "isTagFor": [
+    "minecraft:mule",
+    "horse_colors:mule"
+  ],
+  "xp_values": {
+    "BREED": {
+      "husbandry_group": 200
+    },
+    "RIDING": {
+      "husbandry_group": 10
+    },
+    "TAMING": {
+      "husbandry_group": 1000
+    }
+  },
+  "override": true
+}

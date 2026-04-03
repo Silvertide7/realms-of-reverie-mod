@@ -1,9 +1,9 @@
 package net.silvertide.realmsofreverie.commands;
 
 
-import com.alrex.parcool.api.unstable.Limitation;
-import com.alrex.parcool.common.action.Action;
-import com.alrex.parcool.common.action.Actions;
+//import com.alrex.parcool.api.unstable.Limitation;
+//import com.alrex.parcool.common.action.Action;
+//import com.alrex.parcool.common.action.Actions;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
@@ -37,7 +37,7 @@ public class CmdNodeAdmin {
 
     public static int enableParcoolLimitations(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
         for (ServerPlayer player : EntityArgument.getPlayers(ctx, TARGET_ARG)) {
-            ParcoolUtils.refreshLimitations(player);
+//            ParcoolUtils.refreshLimitations(player);
         }
         return 1;
     }
@@ -54,24 +54,24 @@ public class CmdNodeAdmin {
             source.sendSuccess(() -> Component.literal("PMMO " + landSkill + " level: " + landLevel), false);
             source.sendSuccess(() -> Component.literal("PMMO " + waterSkill + " level: " + waterLevel), false);
 
-            Limitation limitation = Limitation.getIndividual(player);
-            source.sendSuccess(() -> Component.literal("Individual limitation enabled: " + limitation.isEnabled()), false);
-            source.sendSuccess(() -> Component.literal("Stamina type: " + limitation.getStaminaType()), false);
-
-            StringBuilder permitted = new StringBuilder("Permitted: ");
-            StringBuilder denied = new StringBuilder("Denied: ");
-            for (Class<? extends Action> action : Actions.LIST) {
-                String name = action.getSimpleName();
-                if (limitation.isPermitted(action)) {
-                    permitted.append(name).append(", ");
-                } else {
-                    denied.append(name).append(", ");
-                }
-            }
-            String permStr = permitted.toString();
-            String denStr = denied.toString();
-            source.sendSuccess(() -> Component.literal(permStr), false);
-            source.sendSuccess(() -> Component.literal(denStr), false);
+//            Limitation limitation = Limitation.getIndividual(player);
+//            source.sendSuccess(() -> Component.literal("Individual limitation enabled: " + limitation.isEnabled()), false);
+//            source.sendSuccess(() -> Component.literal("Stamina type: " + limitation.getStaminaType()), false);
+//
+//            StringBuilder permitted = new StringBuilder("Permitted: ");
+//            StringBuilder denied = new StringBuilder("Denied: ");
+//            for (Class<? extends Action> action : Actions.LIST) {
+//                String name = action.getSimpleName();
+//                if (limitation.isPermitted(action)) {
+//                    permitted.append(name).append(", ");
+//                } else {
+//                    denied.append(name).append(", ");
+//                }
+//            }
+//            String permStr = permitted.toString();
+//            String denStr = denied.toString();
+//            source.sendSuccess(() -> Component.literal(permStr), false);
+//            source.sendSuccess(() -> Component.literal(denStr), false);
         }
         return 1;
     }

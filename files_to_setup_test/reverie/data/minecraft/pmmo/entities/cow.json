@@ -1,0 +1,11 @@
+{
+  "xp_values": {
+    "BREED": {
+      "husbandry_group": 200
+    },
+    "DEATH": {
+      "husbandry_group": 100
+    }
+  },
+  "override": true
+}

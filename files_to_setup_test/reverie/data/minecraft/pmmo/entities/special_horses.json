@@ -1,0 +1,29 @@
+{
+  "isTagFor": [
+    "minecraft:skeleton_horse",
+    "minecraft:zombie_horse"
+  ],
+  "xp_values": {
+    "BREED": {
+      "husbandry_group": 2000
+    },
+    "RIDING": {
+      "husbandry_group": 16
+    },
+    "TAMING": {
+      "husbandry_group": 6000
+    }
+  },
+  "override": true,
+  "requirements": {
+    "BREED": {
+      "husbandry": 5
+    },
+    "TAME": {
+      "husbandry": 5
+    },
+    "RIDE": {
+      "husbandry": 5
+    }
+  }
+}

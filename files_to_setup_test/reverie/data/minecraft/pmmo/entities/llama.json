@@ -1,0 +1,14 @@
+{
+  "xp_values": {
+    "BREED": {
+      "husbandry_group": 300
+    },
+    "RIDING": {
+      "husbandry_group": 15
+    },
+    "TAMING": {
+      "husbandry_group": 2000
+    }
+  },
+  "override": true
+}

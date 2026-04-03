@@ -1,0 +1,68 @@
+{
+  "afk_can_subtract": false,
+  "afk": {
+    "DIVING": {
+      "reduction": 0.1,
+      "cooloff_amount": 1,
+      "tolerance_percent": 0.0,
+      "strict_tolerance": true,
+      "source": [],
+      "min_time_to_apply": 200,
+      "retention_duration": 0,
+      "tolerance_flat": 0
+    },
+    "SWIM_SPRINTING": {
+      "reduction": 0.1,
+      "cooloff_amount": 1,
+      "tolerance_percent": 0.0,
+      "strict_tolerance": true,
+      "source": [],
+      "min_time_to_apply": 200,
+      "retention_duration": 0,
+      "tolerance_flat": 0
+    },
+    "SUBMERGED": {
+      "reduction": 0.1,
+      "cooloff_amount": 1,
+      "tolerance_percent": 0.0,
+      "strict_tolerance": true,
+      "source": [],
+      "min_time_to_apply": 200,
+      "retention_duration": 0,
+      "tolerance_flat": 0
+    },
+    "SWIMMING": {
+      "reduction": 0.1,
+      "cooloff_amount": 1,
+      "tolerance_percent": 0.0,
+      "strict_tolerance": true,
+      "source": [],
+      "min_time_to_apply": 200,
+      "retention_duration": 0,
+      "tolerance_flat": 0
+    },
+    "SURFACING": {
+      "reduction": 0.1,
+      "cooloff_amount": 1,
+      "tolerance_percent": 0.0,
+      "strict_tolerance": true,
+      "source": [],
+      "min_time_to_apply": 200,
+      "retention_duration": 0,
+      "tolerance_flat": 0
+    }
+  },
+  "diminishing_xp": {
+    "RIDING": {
+      "reduction": 0.0005,
+      "cooloff_amount": 0,
+      "tolerance_percent": 0.0,
+      "strict_tolerance": true,
+      "source": ["minecraft:horse", "minecraft:boat"],
+      "min_time_to_apply": 0,
+      "retention_duration": 100,
+      "tolerance_flat": 0
+    }
+  },
+  "type": "ANTICHEESE"
+}

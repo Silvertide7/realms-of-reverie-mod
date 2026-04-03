@@ -1,0 +1,242 @@
+{
+  "xp_awards": {
+    "axe_breakable_override": {
+      "woodcutting": 0
+    },
+    "hoe_breakable_override": {
+      "farming": 0
+    },
+    "shovel_breakable_override": {
+      "excavation": 0
+    },
+    "entity_xp": {
+      "DEATH": {
+        "endurance": 0
+      },
+      "ENTITY": {
+        "charisma": 0
+      },
+      "SHIELD_BLOCK": {
+        "defense": 1
+      },
+      "RIDING": {
+        "taming": 0
+      },
+      "TAMING": {
+        "taming": 0
+      },
+      "BREED": {
+        "taming": 0
+      }
+    },
+    "rarities_multiplier": 1.0,
+    "item_xp": {
+      "SMELT": {
+        "smithing_group": 1
+      },
+      "BLOCK_PLACE": {
+        "building": 0
+      },
+      "ANVIL_REPAIR": {
+        "smithing_group": 1
+      },
+      "CRAFT": {
+        "crafting": 0
+      },
+      "CONSUME": {
+        "constitution": 20
+      },
+      "ENCHANT": {
+        "arcana": 10
+      },
+      "FISH": {
+        "fishing": 0
+      }
+    },
+    "block_xp": {
+      "BLOCK_PLACE": {
+        "building": 0
+      },
+      "GROW": {
+        "farming": 0
+      },
+      "BLOCK_BREAK": {
+        "mining": 0
+      }
+    }
+  },
+  "requirements": {
+    "axe_override": {
+      "woodcutting": 0
+    },
+    "hoe_override": {
+      "farming": 0
+    },
+    "penalties": {
+      "minecraft:weakness": 0,
+      "minecraft:slowness": 0,
+      "minecraft:mining_fatigue": 0
+    },
+    "block_default": {
+      "mining": 0
+    },
+    "items": {
+      "TOOL": {
+        "mining": 0
+      },
+      "WEAPON": {
+        "combat": 0
+      },
+      "USE_ENCHANTMENT": {
+        "magic": 0
+      },
+      "WEAR": {
+        "endurance": 0
+      }
+    },
+    "shovel_override": {
+      "excavation": 0
+    },
+    "sword_override": {
+      "farming": 0
+    }
+  },
+  "tweaks": {
+    "hardness_modifier": 0.65,
+    "tool_tweaks": {
+      "PICKAXE": {
+        "Dig_Speed": 10.0,
+        "Durability": 0.01,
+        "Attack_Speed": 10.0,
+        "Damage": 1.5,
+        "Tier": 10.0
+      },
+      "SHOVEL": {
+        "Dig_Speed": 10.0,
+        "Durability": 0.01,
+        "Attack_Speed": 10.0,
+        "Damage": 1.5,
+        "Tier": 10.0
+      },
+      "HOE": {
+        "Dig_Speed": 10.0,
+        "Durability": 0.01,
+        "Attack_Speed": 10.0,
+        "Damage": 1.5,
+        "Tier": 10.0
+      },
+      "AXE": {
+        "Dig_Speed": 10.0,
+        "Durability": 0.01,
+        "Attack_Speed": 10.0,
+        "Damage": 1.5,
+        "Tier": 10.0
+      },
+      "SWORD": {
+        "Dig_Speed": 10.0,
+        "Durability": 0.01,
+        "Attack_Speed": 10.0,
+        "Damage": 1.5,
+        "Tier": 10.0
+      }
+    },
+    "wearable_tweaks": {
+      "WINGS": {
+        "Toughness": 10.0,
+        "Durability": 0.01,
+        "Armor": 10.0,
+        "Knockback_Resistance": 10.0
+      },
+      "HEAD": {
+        "Toughness": 10.0,
+        "Durability": 0.01,
+        "Armor": 10.0,
+        "Knockback_Resistance": 10.0
+      },
+      "LEGS": {
+        "Toughness": 10.0,
+        "Durability": 0.01,
+        "Armor": 10.0,
+        "Knockback_Resistance": 10.0
+      },
+      "CHEST": {
+        "Toughness": 10.0,
+        "Durability": 0.01,
+        "Armor": 10.0,
+        "Knockback_Resistance": 10.0
+      },
+      "BOOTS": {
+        "Toughness": 10.0,
+        "Durability": 0.01,
+        "Armor": 10.0,
+        "Knockback_Resistance": 10.0
+      }
+    },
+    "entity_tweaks": {
+      "Move_Speed": 0.15,
+      "Health": 0.5,
+      "Damage": 1.5
+    }
+  },
+  "enabled": true,
+  "enabled_requirements": {
+    "KILL": false,
+    "TRAVEL": false,
+    "INTERACT": false,
+    "RIDE": false,
+    "WEAPON": false,
+    "USE_ENCHANTMENT": false,
+    "BREED": false,
+    "TOOL": false,
+    "PLACE": false,
+    "USE": false,
+    "ENTITY_INTERACT": false,
+    "TAME": false,
+    "WEAR": false,
+    "BREAK": false
+  },
+  "enabled_xp_awards": {
+    "ACTIVATE_BLOCK": false,
+    "RIDING": false,
+    "TAMING": false,
+    "HIT_BLOCK": false,
+    "SUBMERGED": false,
+    "CRAFT": false,
+    "SWIM_SPRINTING": false,
+    "ENCHANT": true,
+    "BREED": false,
+    "ENTITY": false,
+    "SPRINT_JUMP": false,
+    "BREW": false,
+    "ACTIVATE_ITEM": false,
+    "CONSUME": true,
+    "BLOCK_BREAK": false,
+    "GIVEN_AS_TRADE": false,
+    "CROUCH_JUMP": false,
+    "RECEIVED_AS_TRADE": false,
+    "SWIMMING": false,
+    "SURFACING": false,
+    "FISH": false,
+    "MITIGATE_DAMAGE": false,
+    "SMELT": true,
+    "SPRINTING": false,
+    "BREAK_SPEED": false,
+    "BLOCK_PLACE": false,
+    "ANVIL_REPAIR": true,
+    "CROUCH": false,
+    "BREATH_CHANGE": false,
+    "DIVING": false,
+    "DEATH": false,
+    "SHIELD_BLOCK": true,
+    "DEAL_DAMAGE": false,
+    "RECEIVE_DAMAGE": false,
+    "GROW": true,
+    "JUMP": false,
+    "HEALTH_INCREASE": false,
+    "HEALTH_DECREASE": false,
+    "TOOL_BREAKING": false,
+    "EFFECT": false,
+    "SKILL_UP": false
+  },
+  "type": "AUTOVALUES"
+}

@@ -1,0 +1,305 @@
+{
+  "xp_gains": {
+    "reuse_penalty": 0.0,
+    "perks_plus_config": false,
+    "player_actions": {
+      "SWIM_SPRINTING": {
+        "swimming_group": 55.0
+      },
+      "SURFACING": {
+        "swimming_group": 55.0
+      },
+      "BREATH_CHANGE": {
+        "swimming_group": 20.0
+      },
+      "SPRINT_JUMP": {
+        "acrobatics_group": 0.0
+      },
+      "DIVING": {
+        "swimming_group": 20.0
+      },
+      "SPRINTING": {
+        "acrobatics_group": 55.0
+      },
+      "SUBMERGED": {
+        "swimming_group": 0.0
+      },
+      "JUMP": {
+        "acrobatics_group": 0.0
+      },
+      "CROUCH_JUMP": {
+        "acrobatics_group": 0.0
+      },
+      "HEALTH_DECREASE": {
+        "constitution": 10.0
+      },
+      "HEALTH_INCREASE": {
+        "wisdom": 10.0
+      },
+      "SWIMMING": {
+        "swimming_group": 20.0
+      }
+    },
+    "damage": {
+      "RECEIVE_DAMAGE": {},
+      "DEAL_DAMAGE": {
+        "minecraft:magic": {
+          "arcana": 20
+        },
+        "minecraft:indirect_magic": {
+          "arcana": 20
+        },
+        "minecraft:on_fire": {
+          "fire_magic_group": 40
+        },
+        "minecraft:wither": {
+          "evocation_magic_group": 40
+        },
+        "minecraft:lightning_bolt": {
+          "lightning_magic_group": 40
+        },
+        "minecraft:freeze": {
+          "ice_magic_group": 40
+        },
+        "irons_spellbooks:fire_magic": {
+          "fire_magic_group": 40
+        },
+        "irons_spellbooks:fire_field": {
+          "fire_magic_group": 40
+        },
+        "irons_spellbooks:ice_magic": {
+          "ice_magic_group": 40
+        },
+        "irons_spellbooks:ender_magic": {
+          "ender_magic_group": 40
+        },
+        "irons_spellbooks:dragon_breath_pool": {
+          "ender_magic_group": 40
+        },
+        "irons_spellbooks:lightning_magic": {
+          "lightning_magic_group": 40
+        },
+        "irons_spellbooks:heartstop": {
+          "blood_magic_group": 40
+        },
+        "irons_spellbooks:blood_magic": {
+          "blood_magic_group": 40
+        },
+        "irons_spellbooks:blood_cauldron": {
+          "blood_magic_group": 40
+        },
+        "irons_spellbooks:evocation_magic": {
+          "evocation_magic_group": 40
+        },
+        "irons_spellbooks:nature_magic": {
+          "nature_magic_group": 40
+        },
+        "irons_spellbooks:poison_cloud": {
+          "nature_magic_group": 40
+        },
+        "irons_spellbooks:holy_magic": {
+          "holy_magic_group": 40
+        },
+        "irons_spellbooks:eldritch_magic": {
+          "arcana": 40
+        },
+        "apothic_attributes:bleeding": {
+          "arcana": 40
+        },
+        "apothic_attributes:cold_damage": {
+          "ice_magic_group": 40
+        },
+        "apothic_attributes:current_hp_damage": {
+          "constitution": 10
+        },
+        "apothic_attributes:detonation": {
+          "evocation_magic_group": 40
+        },
+        "apothic_attributes:fire_damage": {
+          "fire_magic_group": 40
+        },
+        "neoforge:poison": {
+          "nature_magic_group": 40
+        }
+      },
+      "MITIGATE_DAMAGE": {
+        "apothic_attributes:bleeding": {
+          "defense": 10
+        },
+        "apothic_attributes:cold_damage": {
+          "warding": 10
+        },
+        "apothic_attributes:current_hp_damage": {
+          "defense": 10
+        },
+        "apothic_attributes:detonation": {
+          "defense": 10
+        },
+        "apothic_attributes:fire_damage": {
+          "warding": 10
+        },
+        "irons_spellbooks:fire_magic": {
+          "warding": 10
+        },
+        "irons_spellbooks:fire_field": {
+          "warding": 10
+        },
+        "irons_spellbooks:ice_magic": {
+          "warding": 10
+        },
+        "irons_spellbooks:ender_magic": {
+          "warding": 10
+        },
+        "irons_spellbooks:dragon_breath_pool": {
+          "warding": 10
+        },
+        "irons_spellbooks:lightning_magic": {
+          "warding": 10
+        },
+        "irons_spellbooks:heartstop": {
+          "warding": 10
+        },
+        "irons_spellbooks:blood_magic": {
+          "warding": 10
+        },
+        "irons_spellbooks:blood_cauldron": {
+          "warding": 10
+        },
+        "irons_spellbooks:evocation_magic": {
+          "warding": 10
+        },
+        "irons_spellbooks:nature_magic": {
+          "warding": 10
+        },
+        "irons_spellbooks:poison_cloud": {
+          "warding": 10
+        },
+        "irons_spellbooks:holy_magic": {
+          "warding": 10
+        },
+        "irons_spellbooks:eldritch_magic": {
+          "arcana": 10
+        },
+        "minecraft:arrow": {
+          "defense": 10
+        },
+        "minecraft:explosion": {
+          "defense": 10
+        },
+        "minecraft:fireball": {
+          "warding": 10
+        },
+        "minecraft:lightning_bolt": {
+          "warding": 10
+        },
+        "minecraft:magic": {
+          "warding": 10
+        },
+        "minecraft:indirect_magic": {
+          "warding": 10
+        },
+        "minecraft:mob_attack": {
+          "defense": 10
+        },
+        "minecraft:mob_attack_no_aggro": {
+          "defense": 10
+        },
+        "minecraft:mob_projectile": {
+          "defense": 10
+        },
+        "minecraft:sonic_boom": {
+          "warding": 10
+        },
+        "minecraft:string": {
+          "defense": 10
+        },
+        "minecraft:trident": {
+          "defense": 10
+        },
+        "minecraft:unattributed_fireball": {
+          "warding": 10
+        },
+        "minecraft:wither": {
+          "warding": 10
+        },
+        "minecraft:wither_skull": {
+          "warding": 10
+        },
+        "neoforge:poison": {
+          "warding": 10
+        }
+      }
+    }
+  },
+  "party": {
+    "party_range": 0,
+    "party_bonus": {}
+  },
+  "mob_scaling": {
+    "use_exponential_formula": true,
+    "per_level": 1.0,
+    "power_base": 1.1,
+    "ratios": {
+      "minecraft:generic.attack_damage": {
+        "combat": 1.0e-4
+      },
+      "minecraft:generic.movement_speed": {
+        "combat": 1.0e-6
+      },
+      "minecraft:generic.max_health": {
+        "combat": 0.001
+      }
+    },
+    "enabled": false,
+    "scaling_aoe": 150,
+    "base_level": 0,
+    "boss_scaling": 1.1
+  },
+  "vein_miner": {
+    "default_consume": 1,
+    "charge_modifier": 1.0,
+    "blacklist": [],
+    "enabled": true,
+    "require_settings": false
+  },
+  "general": {
+    "creative_reach": 10.0,
+    "salvage_block": "minecraft:smithing_table",
+    "treasure_enabled": false,
+    "brewing_tracked": true
+  },
+  "levels": {
+    "xp_min": 200,
+    "xp_base": 1.025,
+    "per_level": 1.1,
+    "global_modifier": 1.0,
+    "skill_modifiers": {},
+    "max_level": 20,
+    "static_levels": [
+      1000, 2000, 2000, 2000, 2000, 160000, 230000, 320000, 450000, 600000,
+      900000, 1400000, 2000000, 3000000, 4500000, 7000000, 10000000, 15000000,
+      22000000, 30000000
+    ],
+    "loss_on_death": 0.01,
+    "lose_only_excess": true
+  },
+  "requirements": {
+    "requirement_enabled": {
+      "TAME": true,
+      "TRAVEL": false,
+      "USE": true,
+      "ENTITY_INTERACT": false,
+      "USE_ENCHANTMENT": false,
+      "PLACE": false,
+      "INTERACT": false,
+      "WEAR": true,
+      "BREAK": true,
+      "WEAPON": true,
+      "BREED": true,
+      "KILL": false,
+      "RIDE": true,
+      "TOOL": true
+    }
+  },
+  "type": "SERVER"
+}

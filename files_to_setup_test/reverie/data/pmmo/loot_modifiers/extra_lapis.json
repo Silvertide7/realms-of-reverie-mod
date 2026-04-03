@@ -1,0 +1,18 @@
+{
+  "type": "pmmo:treasure",
+  "chance": 0.03,
+  "conditions": [
+    {
+      "condition": "pmmo:skill_level",
+      "level_max": 2147483647,
+      "level_min": 6,
+      "skill": "mining"
+    },
+    {
+      "condition": "pmmo:valid_block",
+      "tag": "forge:ores/lapis"
+    }
+  ],
+  "count": 1,
+  "item": "minecraft:lapis_lazuli"
+}

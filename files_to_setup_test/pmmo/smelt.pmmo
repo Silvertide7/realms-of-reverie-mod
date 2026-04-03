@@ -1,0 +1,37 @@
+item(minecraft:raw_copper).xp(SMELT).award(smithing_group, 50);
+item(minecraft:copper_ore).xp(SMELT).award(smithing_group, 50);
+item(minecraft:deepslate_copper_ore).xp(SMELT).award(smithing_group, 50);
+
+item(minecraft:raw_iron).xp(SMELT).award(smithing_group, 100);
+item(minecraft:iron_ore).xp(SMELT).award(smithing_group, 100);
+item(minecraft:deepslate_iron_ore).xp(SMELT).award(smithing_group, 100);
+
+item(minecraft:raw_gold).xp(SMELT).award(smithing_group, 200);
+item(minecraft:gold_ore).xp(SMELT).award(smithing_group, 200);
+item(minecraft:deepslate_gold_ore).xp(SMELT).award(smithing_group, 200);
+item(minecraft:nether_gold_ore).xp(SMELT).award(smithing_group, 200);
+
+item(minecraft:nether_quartz_ore).xp(SMELT).award(smithing_group, 50);
+
+item(minecraft:lapis_ore).xp(SMELT).award(smithing_group, 100);
+item(minecraft:deepslate_lapis_ore).xp(SMELT).award(smithing_group, 100);
+
+item(minecraft:emerald_ore).xp(SMELT).award(smithing_group, 500);
+item(minecraft:deepslate_emerald_ore).xp(SMELT).award(smithing_group, 500);
+
+item(minecraft:diamond_ore).xp(SMELT).award(smithing_group, 1000);
+item(minecraft:deepslate_diamond_ore).xp(SMELT).award(smithing_group, 1000);
+
+item(minecraft:redstone_ore).xp(SMELT).award(smithing_group, 150);
+item(minecraft:deepslate_redstone_ore).xp(SMELT).award(smithing_group, 150);
+
+item(minecraft:ancient_debris).xp(SMELT).award(smithing_group, 2500);
+item(irons_spellbooks:mithril).xp(SMELT).award(smithing_group, 3000);
+
+item(create:raw_zinc).xp(SMELT).award(smithing_group, 150);
+item(create:zinc_ore).xp(SMELT).award(smithing_group, 150);
+item(create:deepslate_zinc_ore).xp(SMELT).award(smithing_group, 150);
+
+item(galosphere:raw_palladium).xp(SMELT).award(smithing_group, 200);
+item(galosphere:palladium_ore).xp(SMELT).award(smithing_group, 200);
+item(galosphere:deepslate_palladium_ore).xp(SMELT).award(smithing_group, 200);

@@ -1,0 +1,18 @@
+{
+  "type": "pmmo:treasure",
+  "chance": 0.03,
+  "conditions": [
+    {
+      "condition": "pmmo:skill_level",
+      "level_max": 21,
+      "level_min": 4,
+      "skill": "farming"
+    },
+    {
+      "block": "minecraft:carrots",
+      "condition": "pmmo:valid_block"
+    }
+  ],
+  "count": 1,
+  "item": "minecraft:carrot"
+}

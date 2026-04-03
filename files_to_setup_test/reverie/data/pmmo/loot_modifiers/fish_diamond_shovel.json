@@ -1,0 +1,18 @@
+{
+  "type": "pmmo:rare_drop",
+  "chance": 0.001,
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:gameplay/fishing"
+    },
+    {
+      "condition": "pmmo:skill_level_kill",
+      "level_max": 21,
+      "level_min": 7,
+      "skill": "fishing"
+    }
+  ],
+  "count": 1,
+  "item": "minecraft:diamond_shovel"
+}

@@ -1,0 +1,327 @@
+WITH config(perks)
+    set(clear_all);
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STATS
+//------------------------------- Strength
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(strength)
+        .attribute("minecraft:generic.attack_damage")
+        .per_level(0.05)
+        .max_boost(1.0);
+
+    // Base 0.42
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(strength)
+        .attribute("minecraft:generic.jump_strength")
+        .per_level(0.005)
+        .max_boost(0.1);
+    
+    set().event(SKILL_UP)
+        .perk("pmmo:fireworks")
+        .skill(strength);
+//------------------------------- Dexterity
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(dexterity)
+        .attribute("minecraft:generic.movement_speed")
+        .per_level(0.00125)
+        .max_boost(0.025);
+    
+    set().event(SKILL_UP)
+        .perk("pmmo:fireworks")
+        .skill(dexterity);
+//------------------------------- Constitution
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(constitution)
+        .attribute("minecraft:generic.max_health")
+        .per_level(0.5)
+        .max_boost(10.0);
+    
+    set().event(SKILL_UP)
+        .perk("pmmo:fireworks")
+        .skill(constitution);
+
+//------------------------------- Intelligence
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(intelligence)
+        .attribute("irons_spellbooks:max_mana")
+        .per_level(4.0)
+        .max_boost(80.0);
+    
+    set().event(SKILL_UP)
+        .perk("pmmo:fireworks")
+        .skill(intelligence);
+
+//------------------------------- Charisma
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(charisma)
+        .attribute("irons_spellbooks:spell_power")
+        .per_level(0.01)
+        .max_boost(0.20);
+    
+    set().event(SKILL_UP)
+        .perk("pmmo:fireworks")
+        .skill(charisma);
+
+//------------------------------- Wisdom
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(wisdom)
+        .attribute("irons_spellbooks:mana_regen")
+        .per_level(0.01)
+        .max_boost(0.2);
+    
+    set().event(SKILL_UP)
+        .perk("pmmo:fireworks")
+        .skill(wisdom);
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SKILLS
+//------------------------------- Mining
+    set().event(BREAK_SPEED)
+        .perk("pmmo:break_speed")
+        .skill(mining)
+        .pickaxe_dig(0.075);
+
+//------------------------------- Excavation
+    set().event(BREAK_SPEED)
+        .perk("pmmo:break_speed")
+        .skill(excavation)
+        .shovel_dig(0.075);
+
+//------------------------------- Woodcutting
+    set().event(BREAK_SPEED)
+        .perk("pmmo:break_speed")
+        .skill(woodcutting)
+        .axe_dig(0.075);
+
+//------------------------------- Acrobatics
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(acrobatics)
+        .attribute("parcool:max_stamina")
+        .per_level(20)
+        .max_boost(400);
+
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(acrobatics)
+        .attribute("parcool:stamina_recovery")
+        .per_level(0.015)
+        .max_boost(0.3);
+
+//------------------------------- Swimming
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(swimming)
+        .attribute("neoforge:swim_speed")
+        .per_level(0.01)
+        .max_boost(0.2);
+
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(swimming)
+        .attribute("minecraft:generic.oxygen_bonus")
+        .per_level(1.0)
+        .max_boost(20.0);
+
+//------------------------------- Farming
+    set().event(BREAK_SPEED)
+        .perk("pmmo:break_speed")
+        .skill(farming)
+        .shears_dig(0.05)
+        .sword_dig(0.05)
+        .hoe_dig(0.05);
+
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(farming)
+        .attribute("minecraft:player.block_interaction_range")
+        .per_level(0.2)
+        .max_boost(2.0);
+
+//------------------------------- Fishing
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(fishing)
+        .attribute("minecraft:generic.luck")
+        .per_level(0.1)
+        .max_boost(2.0);
+
+//------------------------------- Husbandry
+//    set().event(SKILL_UP)
+//        .perk("pmmo:tame_boost")
+//        .skill(husbandry)
+//        .attribute("minecraft:generic.luck")
+//        .per_level(0.1)
+//        .max_boost(2.0);
+
+//------------------------------- Cooking
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(cooking)
+        .attribute("apothic_attributes:healing_received")
+        .per_level(0.01)
+        .max_boost(0.2);
+
+//------------------------------- Alchemy
+
+//------------------------------- Smithing
+
+//------------------------------- Defense
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(defense)
+        .attribute("minecraft:generic.armor")
+        .per_level(0.2)
+        .max_boost(4.0);
+
+//------------------------------- Warding
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(warding)
+        .attribute("irons_spellbooks:spell_resist")
+        .per_level(0.005)
+        .max_boost(0.10);
+
+//------------------------------- Arcana
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(arcana)
+        .attribute("irons_spellbooks:mana_regen")
+        .per_level(0.01)
+        .max_boost(0.20);
+
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(arcana)
+        .attribute("irons_spellbooks:max_mana")
+        .per_level(3.0)
+        .max_boost(60.0);
+
+//~~~~~~~~~~~~~~~~~~~ MAGIC SCHOOLS ~~~~~~~~~~~~~~~~~~~
+
+//------------------------------- Electromancy [Lightning, Intelligence]
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(lightning_magic)
+        .attribute("irons_spellbooks:lightning_spell_power")
+        .per_level(0.015)
+        .max_boost(0.30);
+
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(lightning_magic)
+        .attribute("irons_spellbooks:ice_magic_resist")
+        .per_level(0.01)
+        .max_boost(0.20);
+
+//------------------------------- Cryomancy [Ice, Intelligence]
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(ice_magic)
+        .attribute("irons_spellbooks:ice_spell_power")
+        .per_level(0.015)
+        .max_boost(0.30);
+
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(ice_magic)
+        .attribute("irons_spellbooks:fire_magic_resist")
+        .per_level(0.01)
+        .max_boost(0.20);
+
+//------------------------------- Voidweaving [Ender, Intelligence]
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(ender_magic)
+        .attribute("irons_spellbooks:ender_spell_power")
+        .per_level(0.015)
+        .max_boost(0.30);
+
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(ender_magic)
+        .attribute("irons_spellbooks:holy_magic_resist")
+        .per_level(0.01)
+        .max_boost(0.20);
+
+//------------------------------- Pyromancy [Fire, Charisma]
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(fire_magic)
+        .attribute("irons_spellbooks:fire_spell_power")
+        .per_level(0.015)
+        .max_boost(0.30);
+
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(fire_magic)
+        .attribute("irons_spellbooks:nature_magic_resist")
+        .per_level(0.01)
+        .max_boost(0.20);
+//------------------------------- Evocation [Evocation, Charisma]
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(evocation_magic)
+        .attribute("irons_spellbooks:evocation_spell_power")
+        .per_level(0.015)
+        .max_boost(0.30);
+    
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(evocation_magic)
+        .attribute("irons_spellbooks:ender_magic_resist")
+        .per_level(0.01)
+        .max_boost(0.20);
+
+//------------------------------- Haematurge [Blood, Charisma]
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(blood_magic)
+        .attribute("irons_spellbooks:blood_spell_power")
+        .per_level(0.015)
+        .max_boost(0.30);
+    
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(blood_magic)
+        .attribute("irons_spellbooks:evocation_magic_resist")
+        .per_level(0.01)
+        .max_boost(0.20);
+
+//------------------------------- Lightweaving [Holy, Wisdom]
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(holy_magic)
+        .attribute("irons_spellbooks:holy_spell_power")
+        .per_level(0.015)
+        .max_boost(0.30);
+    
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(holy_magic)
+        .attribute("irons_spellbooks:blood_magic_resist")
+        .per_level(0.01)
+        .max_boost(0.20);
+
+//------------------------------- Terramancy [Nature, Wisdom]
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(nature_magic)
+        .attribute("irons_spellbooks:nature_spell_power")
+        .per_level(0.015)
+        .max_boost(0.30);
+    
+    set().event(SKILL_UP)
+        .perk("pmmo:attribute")
+        .skill(nature_magic)
+        .attribute("irons_spellbooks:lightning_magic_resist")
+        .per_level(0.01)
+        .max_boost(0.20);
+
+END

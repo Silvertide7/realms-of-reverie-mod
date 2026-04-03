@@ -1,0 +1,11 @@
+{
+  "xp_values": {
+    "RECEIVED_AS_TRADE": {
+      "charisma": 15
+    },
+    "GIVEN_AS_TRADE": {
+      "charisma": 15
+    }
+  },
+  "override": true
+}

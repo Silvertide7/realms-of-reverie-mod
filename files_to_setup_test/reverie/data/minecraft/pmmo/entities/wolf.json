@@ -1,0 +1,19 @@
+{
+  "xp_values": {
+    "BREED": {
+      "husbandry_group": 400
+    },
+    "TAMING": {
+      "husbandry_group": 1000
+    }
+  },
+  "override": true,
+  "requirements": {
+    "BREED": {
+      "charisma": 2
+    },
+    "TAME": {
+      "charisma": 3
+    }
+  }
+}

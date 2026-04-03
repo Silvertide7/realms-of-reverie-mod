@@ -1,0 +1,20 @@
+{
+  "isTagFor": [
+    "minecraft:horse",
+    "minecraft:skeleton_horse",
+    "minecraft:zombie_horse",
+    "horse_colors:horse_felinoid"
+  ],
+  "xp_values": {
+    "BREED": {
+      "husbandry_group": 400
+    },
+    "RIDING": {
+      "husbandry_group": 10
+    },
+    "TAMING": {
+      "husbandry_group": 2000
+    }
+  },
+  "override": true
+}

@@ -119,8 +119,8 @@ configurations {
 dependencies {
     // PROJECT MMO ************************************************************************************************
     implementation "curse.maven:pmmo-353935:${pmmo_version}"
-    implementation "curse.maven:parcool-482378:${parcool_version}"
-    implementation "curse.maven:paragliders-289240:7795089"
+//    implementation "curse.maven:parcool-482378:${parcool_version}"
+//    implementation "curse.maven:paragliders-289240:7795089"
     implementation "curse.maven:paxi-neoforge-1015157:6485740"
     implementation "curse.maven:yungs-api-neoforge-1015100:6715463"
 }

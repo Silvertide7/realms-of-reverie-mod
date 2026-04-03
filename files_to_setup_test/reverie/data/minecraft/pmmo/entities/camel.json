@@ -1,0 +1,26 @@
+{
+  "isTagFor": [
+    "minecraft:camel",
+    "untamedwilds:camel"
+  ],
+  "xp_values": {
+    "BREED": {
+      "husbandry_group": 400
+    },
+    "RIDING": {
+      "husbandry_group": 15
+    },
+    "TAMING": {
+      "husbandry_group": 6000
+    }
+  },
+  "override": true,
+  "requirements": {
+    "BREED": {
+      "charisma": 5
+    },
+    "TAME": {
+      "charisma": 5
+    }
+  }
+}
