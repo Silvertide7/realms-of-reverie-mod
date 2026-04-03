@@ -1,4 +1,13 @@
 
+1.1.6
+---
+- More debug logs
+
+
+1.1.5
+---
+- Add debug command for parcool limitations
+
 1.1.4
 ---
 - Save limitation changes.
