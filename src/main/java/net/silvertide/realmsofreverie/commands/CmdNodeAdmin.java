@@ -15,7 +15,6 @@ import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.silvertide.realmsofreverie.config.ServerConfigs;
-import net.silvertide.realmsofreverie.utils.ParcoolUtils;
 
 public class CmdNodeAdmin {
     private static final String TARGET_ARG = "Target";
@@ -36,9 +35,6 @@ public class CmdNodeAdmin {
     }
 
     public static int enableParcoolLimitations(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
-        for (ServerPlayer player : EntityArgument.getPlayers(ctx, TARGET_ARG)) {
-//            ParcoolUtils.refreshLimitations(player);
-        }
         return 1;
     }
 

@@ -1,0 +1,13 @@
+{
+  "pack": {
+    "description": "Removes all PMMO data",
+    "pack_format": 48
+  },
+  "filter": {
+    "block": [
+      {
+        "path": "pmmo"
+      }
+    ]
+  }
+}
