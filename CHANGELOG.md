@@ -1,8 +1,10 @@
+1.1.7
+---
+- Remove all debug logs. Clean up XpEvent. Fix merged to pmmo repo.
 
 1.1.6
 ---
 - More debug logs
-
 
 1.1.5
 ---

@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod +x /Users/nate/devtools/java17 /Users/nate/devtools/java21)",
+      "Bash(chmod +x /Users/nate/devtools/java25)",
+      "Bash(zsh -c 'source /Users/nate/devtools/java25 && echo \"\"PATH entry: $\\(which java\\)\"\"')",
+      "Bash(JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home ./gradlew build)",
+      "Bash(chmod +x /Users/nate/Workspace/minecraft/personal/realms_of_reverie/gradlew)",
+      "Bash(JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home /Users/nate/Workspace/minecraft/personal/realms_of_reverie/gradlew build)",
+      "Bash(JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home bash gradlew build)",
+      "Bash(JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home bash /Users/nate/Workspace/minecraft/personal/realms_of_reverie/gradlew build)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/Caltinor/Project-MMO-2.0/1-21-1/src/main/java/harmonised/pmmo/api/APIUtils.java\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/Caltinor/Project-MMO-2.0/1-21-1/src/main/java/harmonised/pmmo/core/IDataStorage.java\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/Caltinor/Project-MMO-2.0/1-21-1/src/main/java/harmonised/pmmo/registry/LevelRegistry.java\")",
+      "Bash(gh repo:*)",
+      "Bash(./gradlew build:*)",
+      "Bash(bash gradlew:*)"
+    ]
+  }
+}

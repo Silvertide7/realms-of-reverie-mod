@@ -14,21 +14,21 @@ import net.silvertide.realmsofreverie.utils.ParcoolUtils;
 @EventBusSubscriber(modid = RealmsOfReverie.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class ParcoolEvents {
 
-    // LOWEST to ensure PMMO has finished loading player data and awarding any scheduled XP.
-    @SubscribeEvent(priority=EventPriority.LOWEST)
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer serverPlayer) {
             ParcoolUtils.refreshLimitations(serverPlayer);
         }
     }
 
-    @SubscribeEvent(priority=EventPriority.LOW)
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onPmmoSkillUp(XpEvent event) {
         if (!event.isLevelUp()) return;
         if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) return;
 
         String landSkill = ServerConfigs.PARCOOL_LAND_SKILL.get();
         String waterSkill = ServerConfigs.PARCOOL_WATER_SKILL.get();
+
         if (landSkill.equals(event.skill)) {
             ParcoolUtils.refreshLimitations(serverPlayer, event.endLevel(), APIUtils.getLevel(waterSkill, serverPlayer));
         } else if (waterSkill.equals(event.skill)) {
