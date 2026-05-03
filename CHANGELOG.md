@@ -1,3 +1,7 @@
+1.1.8
+---
+- Stop spawner blocks from being broken
+
 1.1.7
 ---
 - Remove all debug logs. Clean up XpEvent. Fix merged to pmmo repo.
